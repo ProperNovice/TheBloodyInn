@@ -7,7 +7,7 @@ public enum Credentials {
 
 	INSTANCE;
 
-	public String primaryStageTitle = "JavaFX", numbersImageViewColor = "black";
+	public String primaryStageTitle = "The Bloody Inn", numbersImageViewColor = "black";
 	public boolean colliderVisibility = true;
 	public final double stagePixesOnTheLeft = 180, gapBetweenBorders = 10, textHeight = 50,
 			selectEventHandlerAbleDimension = 100, imageViewCloneWidth = 200, animationStep = 4,
