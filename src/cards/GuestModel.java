@@ -36,6 +36,13 @@ public class GuestModel {
 
 	private void createPocketMoney() {
 
+		if (this.eGuestType.equals(EGuestType.PEASANT)) {
+
+			this.pocketMoney = 4;
+			return;
+
+		}
+
 		switch (this.rank) {
 
 		case 0:

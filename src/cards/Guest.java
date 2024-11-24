@@ -15,7 +15,7 @@ public class Guest implements IImageViewAble {
 
 	@Override
 	public void handleMousePressedPrimary() {
-		this.guestModel.print();
+
 	}
 
 	private void createImageView() {
