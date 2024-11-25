@@ -18,7 +18,7 @@ public enum Credentials {
 	public boolean primaryStageFullScreen = false;
 
 	public Vector2 dCard;
-	public Vector2 cRooms;
+	public Vector2 cEntrance, cBistro, cRooms;
 
 	private Credentials() {
 
@@ -66,18 +66,22 @@ public enum Credentials {
 
 		y = this.dFrame.y;
 		y -= 2 * this.gapBetweenBorders;
-		y -= 2 * this.dGapBetweenComponents.y;
-		y /= 3;
+		y -= 3 * this.dGapBetweenComponents.y;
+		y /= 4;
 		x = 361 * y / 585;
 		this.dCard = new Vector2(x, y);
 
-		this.dCard.print();
-
-		// c rooms
+		// c entrance
 
 		x = this.gapBetweenBorders;
 		y = this.gapBetweenBorders;
-		this.cRooms = new Vector2(x, y);
+		this.cEntrance = new Vector2(x, y);
+
+		// c bistro
+
+		this.cBistro = this.cEntrance.clone();
+		this.cBistro.addX(this.dCard);
+		this.cBistro.addX(this.dGapBetweenComponents);
 
 	}
 

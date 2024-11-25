@@ -1,7 +1,5 @@
 package enums;
 
-import utils.ShutDown;
-
 public enum EGuest {
 
 	CULTIVATOR(EGuestType.ARTISAN, 0), MECHANIC(EGuestType.ARTISAN, 1),
@@ -23,8 +21,6 @@ public enum EGuest {
 	private EGuestType eGuestType = null;
 	private int rank = -1;
 
-	private int getEGuestType = 0, getRank = 0;
-
 	private EGuest(EGuestType eGuestType, int rank) {
 
 		this.eGuestType = eGuestType;
@@ -33,25 +29,11 @@ public enum EGuest {
 	}
 
 	public EGuestType getEGuestType() {
-
-		this.getEGuestType++;
-
-		if (this.getEGuestType > 1)
-			ShutDown.INSTANCE.execute();
-
 		return this.eGuestType;
-
 	}
 
 	public int getRank() {
-
-		this.getRank++;
-
-		if (this.getRank > 1)
-			ShutDown.INSTANCE.execute();
-
 		return this.rank;
-
 	}
 
 }

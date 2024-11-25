@@ -7,7 +7,7 @@ public class ArrayListImageView<T> extends ArrayList<T> {
 	private ListImageViewAbles<IImageViewAble> list = null;
 	private Runnable runnableShowListSize = null;
 
-	public ArrayListImageView(ListImageViewAbles<IImageViewAble> list,
+	protected ArrayListImageView(ListImageViewAbles<IImageViewAble> list,
 			Runnable runnableShowListSize) {
 
 		this.list = list;

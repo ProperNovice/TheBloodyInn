@@ -1,5 +1,6 @@
 package cards;
 
+import controller.Credentials;
 import enums.EGuest;
 import utils.ImageView;
 import utils.Interfaces.IImageViewAble;
@@ -27,6 +28,7 @@ public class Guest implements IImageViewAble {
 		fileName += ".jpg";
 
 		new ImageView(fileName, this);
+		getImageView().setDimensions(Credentials.INSTANCE.dCard);
 
 	}
 
