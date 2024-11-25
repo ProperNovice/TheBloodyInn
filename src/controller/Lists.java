@@ -11,6 +11,7 @@ public enum Lists {
 
 	public ListImageViewAbles<Guest> entrance = new ListImageViewAbles<>();
 	public ListImageViewAbles<Guest> bistro = new ListImageViewAbles<>();
+	public ListImageViewAbles<Guest> exit = new ListImageViewAbles<>();
 
 	private Lists() {
 
@@ -29,6 +30,12 @@ public enum Lists {
 		listCredentials.coordinatesList = Credentials.INSTANCE.cBistro;
 		listCredentials.rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
 		listCredentials.showListSize = true;
+
+		// exit
+
+		listCredentials = this.exit.getListCredentials();
+		listCredentials.coordinatesList = Credentials.INSTANCE.cExit;
+		listCredentials.rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
 
 	}
 

@@ -1,17 +1,28 @@
 package model;
 
-import utils.Interfaces.ISelectCoordinatesAble;
+import cards.Guest;
+import utils.Enums.RelocateTypeEnum;
+import utils.ListCredentials;
+import utils.ListImageViewAbles;
 import utils.Vector2;
 
-public class Room implements ISelectCoordinatesAble {
+public class Room {
 
-	public Room() {
+	private ListImageViewAbles<Guest> list = new ListImageViewAbles<>();
+
+	public Room(double x, double y) {
+
+		createGuestList(x, y);
 
 	}
 
-	@Override
-	public Vector2 getCoordinatesCenter() {
-		return null;
+	private void createGuestList(double x, double y) {
+
+		ListCredentials listCredentials = this.list.getListCredentials();
+		listCredentials.coordinatesList = new Vector2(x, y);
+		listCredentials.relocateTypeEnum = RelocateTypeEnum.CENTER;
+		this.list.getArrayList().setCapacity(1);
+
 	}
 
 }

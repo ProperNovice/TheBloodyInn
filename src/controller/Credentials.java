@@ -17,8 +17,8 @@ public enum Credentials {
 	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.LINEAR;
 	public boolean primaryStageFullScreen = false;
 
-	public Vector2 dCard;
-	public Vector2 cEntrance, cBistro, cRooms;
+	public Vector2 dCard, dCardAndGapBetweenComponents;
+	public Vector2 cEntrance, cBistro, cExit, cRooms;
 
 	private Credentials() {
 
@@ -71,6 +71,11 @@ public enum Credentials {
 		x = 361 * y / 585;
 		this.dCard = new Vector2(x, y);
 
+		// d card and gap between components
+
+		this.dCardAndGapBetweenComponents = this.dCard.clone();
+		this.dCardAndGapBetweenComponents.addVector2(this.dGapBetweenComponents);
+
 		// c entrance
 
 		x = this.gapBetweenBorders;
@@ -80,8 +85,19 @@ public enum Credentials {
 		// c bistro
 
 		this.cBistro = this.cEntrance.clone();
-		this.cBistro.addX(this.dCard);
-		this.cBistro.addX(this.dGapBetweenComponents);
+		this.cBistro.addX(this.dCardAndGapBetweenComponents);
+
+		// c exit
+
+		this.cExit = this.cBistro.clone();
+		this.cExit.addX(this.dCardAndGapBetweenComponents);
+
+		// c rooms
+
+		this.cRooms = this.cEntrance.clone();
+		this.cRooms.addY(this.dCardAndGapBetweenComponents);
+		this.cRooms.addX(this.dCard.x / 2);
+		this.cRooms.addY(this.dCard.y / 2);
 
 	}
 
