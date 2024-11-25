@@ -2,6 +2,7 @@ package cards;
 
 import controller.Credentials;
 import enums.EGuest;
+import enums.ELayerZ;
 import utils.ImageView;
 import utils.Interfaces.IImageViewAble;
 
@@ -27,7 +28,7 @@ public class Guest implements IImageViewAble {
 		fileName += this.guestModel.getEGuest().toString().toLowerCase();
 		fileName += ".jpg";
 
-		new ImageView(fileName, this);
+		new ImageView(fileName, ELayerZ.GUESTS, this);
 		getImageView().setDimensions(Credentials.INSTANCE.dCard);
 
 	}
