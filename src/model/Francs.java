@@ -18,6 +18,34 @@ public enum Francs {
 
 	}
 
+	public void addCash(int cash) {
+
+		this.francCash += cash;
+		this.francCash = Math.min(this.francCash, 40);
+		updateGUI();
+
+	}
+
+	public void removeCash(int cash) {
+
+		this.francCash -= cash;
+		updateGUI();
+
+	}
+
+	public void addChecks(int checks) {
+		this.francChecks += checks;
+		updateGUI();
+	}
+
+	public int getChecks() {
+		return this.francChecks;
+	}
+
+	public int getCash() {
+		return this.francCash;
+	}
+
 	private void updateGUI() {
 
 		// franc checks
