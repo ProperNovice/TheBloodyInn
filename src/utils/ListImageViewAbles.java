@@ -12,7 +12,7 @@ import utils.Interfaces.IImageViewAble;
 public class ListImageViewAbles<T> implements Iterable<T> {
 
 	private ArrayListImageView<T> arrayList = null;
-	private IndicatorNumberImageView numberImageViewIndicator = new IndicatorNumberImageView();
+	private IndicatorNumberImageView indicatorNumberImageView = new IndicatorNumberImageView();
 	private CoordinatesList<T> coordinates = new CoordinatesList<>(this);
 	private ListCredentials listCredentials = new ListCredentials();
 
@@ -103,7 +103,7 @@ public class ListImageViewAbles<T> implements Iterable<T> {
 
 	private void showListSize() {
 
-		this.numberImageViewIndicator.clear();
+		this.indicatorNumberImageView.clear();
 
 		if (!this.listCredentials.showListSize)
 			return;
@@ -123,11 +123,11 @@ public class ListImageViewAbles<T> implements Iterable<T> {
 		center = CoordinatesRelocateType.INSTANCE.translateRelocateTypeCoordinatesFindCenter(center,
 				imageView.getDimenions(), relocateTypeEnum);
 
-		this.numberImageViewIndicator
+		this.indicatorNumberImageView
 				.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.PIVOT;
 
-		this.numberImageViewIndicator.getListCredentials().coordinatesList = center;
-		this.numberImageViewIndicator.getListCredentials();
+		this.indicatorNumberImageView.getListCredentials().coordinatesList = center;
+		this.indicatorNumberImageView.getListCredentials();
 
 		// set number
 
@@ -145,7 +145,7 @@ public class ListImageViewAbles<T> implements Iterable<T> {
 
 		}
 
-		this.numberImageViewIndicator.setNumber(number, dimension);
+		this.indicatorNumberImageView.setNumber(number, dimension);
 
 	}
 
