@@ -1,4 +1,4 @@
-package model;
+package tokens;
 
 import controller.Credentials;
 import enums.EColor;

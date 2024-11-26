@@ -1,6 +1,7 @@
 package model;
 
 import cards.Guest;
+import tokens.Token;
 import utils.Enums.RearrangeTypeEnum;
 import utils.Enums.RelocateTypeEnum;
 import utils.ListCredentials;
