@@ -1,4 +1,4 @@
-package tokens;
+package model;
 
 import utils.Interfaces.IImageViewAble;
 

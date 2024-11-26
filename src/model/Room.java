@@ -1,7 +1,6 @@
 package model;
 
 import cards.Guest;
-import tokens.Token;
 import utils.Enums.RearrangeTypeEnum;
 import utils.Enums.RelocateTypeEnum;
 import utils.ListCredentials;
@@ -38,11 +37,11 @@ public class Room {
 
 	}
 
-	public ListImageViewAbles<Guest> getGuest() {
+	public ListImageViewAbles<Guest> getGuestList() {
 		return this.guest;
 	}
 
-	public ListImageViewAbles<Token> getTokens() {
+	public ListImageViewAbles<Token> getTokensList() {
 		return this.tokens;
 	}
 
