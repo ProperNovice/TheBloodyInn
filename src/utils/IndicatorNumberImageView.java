@@ -2,26 +2,26 @@ package utils;
 
 import utils.Interfaces.IImageViewAble;
 
-public class NumberImageViewIndicator extends Indicator {
+public class IndicatorNumberImageView extends Indicator {
 
-	public NumberImageViewIndicator() {
+	public IndicatorNumberImageView() {
 		super();
 	}
 
-	public NumberImageViewIndicator(double dimension, double coordinatesX, double coordinatesY) {
+	public IndicatorNumberImageView(double dimension, double coordinatesX, double coordinatesY) {
 		super(dimension, new Vector2(coordinatesX, coordinatesY), 1);
 	}
 
-	public NumberImageViewIndicator(double dimension, double coordinatesX, double coordinatesY,
+	public IndicatorNumberImageView(double dimension, double coordinatesX, double coordinatesY,
 			int digits) {
 		super(dimension, new Vector2(coordinatesX, coordinatesY), digits);
 	}
 
-	public NumberImageViewIndicator(double dimension, Vector2 vector2) {
+	public IndicatorNumberImageView(double dimension, Vector2 vector2) {
 		super(dimension, vector2, 1);
 	}
 
-	public NumberImageViewIndicator(double dimension, Vector2 vector2, int digits) {
+	public IndicatorNumberImageView(double dimension, Vector2 vector2, int digits) {
 		super(dimension, vector2, digits);
 	}
 

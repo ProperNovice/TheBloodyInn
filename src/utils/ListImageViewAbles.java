@@ -12,7 +12,7 @@ import utils.Interfaces.IImageViewAble;
 public class ListImageViewAbles<T> implements Iterable<T> {
 
 	private ArrayListImageView<T> arrayList = null;
-	private NumberImageViewIndicator numberImageViewIndicator = new NumberImageViewIndicator();
+	private IndicatorNumberImageView numberImageViewIndicator = new IndicatorNumberImageView();
 	private CoordinatesList<T> coordinates = new CoordinatesList<>(this);
 	private ListCredentials listCredentials = new ListCredentials();
 

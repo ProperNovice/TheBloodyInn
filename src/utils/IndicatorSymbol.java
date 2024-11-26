@@ -4,25 +4,25 @@ import symbols.Symbol;
 import symbols.SymbolHashmap;
 import utils.Interfaces.IImageViewAble;
 
-public class SymbolIndicator extends Indicator {
+public class IndicatorSymbol extends Indicator {
 
-	public SymbolIndicator() {
+	public IndicatorSymbol() {
 		super();
 	}
 
-	public SymbolIndicator(double dimension, double coordinatesX, double coordinatesY) {
+	public IndicatorSymbol(double dimension, double coordinatesX, double coordinatesY) {
 		super(dimension, new Vector2(coordinatesX, coordinatesY), 1);
 	}
 
-	public SymbolIndicator(double dimension, double coordinatesX, double coordinatesY, int digits) {
+	public IndicatorSymbol(double dimension, double coordinatesX, double coordinatesY, int digits) {
 		super(dimension, new Vector2(coordinatesX, coordinatesY), digits);
 	}
 
-	public SymbolIndicator(double dimension, Vector2 vector2) {
+	public IndicatorSymbol(double dimension, Vector2 vector2) {
 		super(dimension, vector2, 1);
 	}
 
-	public SymbolIndicator(double dimension, Vector2 vector2, int digits) {
+	public IndicatorSymbol(double dimension, Vector2 vector2, int digits) {
 		super(dimension, vector2, digits);
 	}
 
