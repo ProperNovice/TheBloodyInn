@@ -10,6 +10,14 @@ public enum EText {
 	RESTART("Restart", TextTypeEnum.OPTION), START_GAME("Start game", TextTypeEnum.OPTION),
 	VOID_INDICATOR("", TextTypeEnum.INDICATOR), VOID_OPTION("", TextTypeEnum.OPTION),
 	YOU_LOST("You lost", TextTypeEnum.INDICATOR), YOU_WON("You won", TextTypeEnum.INDICATOR),
+	EVENING("Evening", TextTypeEnum.INDICATOR), CHOOSE_ROOM("Choose room", TextTypeEnum.INDICATOR),
+	NIGHT("Night", TextTypeEnum.INDICATOR), ACTION("Action: ", TextTypeEnum.INDICATOR),
+	CHOOSE_ACTION("Choose action", TextTypeEnum.INDICATOR),
+	BRIBE_GUEST_OPTION("Bribe guest", TextTypeEnum.OPTION),
+	BUILD_ANNEX("Build annex", TextTypeEnum.OPTION), KILL_GUEST("Kill guest", TextTypeEnum.OPTION),
+	BURY_CORPSE("Bury corpse", TextTypeEnum.OPTION),
+	PASS_AND_LAUNDER("Pass and launder", TextTypeEnum.OPTION),
+	BRIBE_GUEST_INDICATOR("Bribe guest", TextTypeEnum.INDICATOR),
 
 	;
 

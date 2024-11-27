@@ -1,5 +1,6 @@
 package controller;
 
+import cards.Card;
 import cards.Guest;
 import utils.Enums.RearrangeTypeEnum;
 import utils.ListCredentials;
@@ -10,9 +11,11 @@ public enum Lists {
 	INSTANCE;
 
 	public ListImageViewAbles<Guest> entrance = new ListImageViewAbles<>();
+	public ListImageViewAbles<Guest> reception = new ListImageViewAbles<>();
 	public ListImageViewAbles<Guest> bistro = new ListImageViewAbles<>();
 	public ListImageViewAbles<Guest> exit = new ListImageViewAbles<>();
 	public ListImageViewAbles<Guest> hand = new ListImageViewAbles<>();
+	public ListImageViewAbles<Card> annex = new ListImageViewAbles<>();
 
 	private Lists() {
 
@@ -24,6 +27,11 @@ public enum Lists {
 		listCredentials.coordinatesList = Credentials.INSTANCE.cEntrance;
 		listCredentials.rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
 		listCredentials.showListSize = true;
+
+		// reception
+
+		listCredentials = this.reception.getListCredentials();
+		listCredentials.coordinatesList = Credentials.INSTANCE.cReception;
 
 		// bistro
 
@@ -37,6 +45,11 @@ public enum Lists {
 		listCredentials = this.exit.getListCredentials();
 		listCredentials.coordinatesList = Credentials.INSTANCE.cExit;
 		listCredentials.rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
+
+		// annex
+
+		listCredentials = this.annex.getListCredentials();
+		listCredentials.coordinatesList = Credentials.INSTANCE.cAnnex;
 
 		// hand
 

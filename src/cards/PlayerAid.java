@@ -3,9 +3,8 @@ package cards;
 import controller.Credentials;
 import enums.ELayerZ;
 import utils.ImageView;
-import utils.Interfaces.IImageViewAble;
 
-public class PlayerAid implements IImageViewAble {
+public class PlayerAid extends Card {
 
 	public PlayerAid() {
 

@@ -3,6 +3,7 @@ package gameStatesDefault;
 import controller.Credentials;
 import enums.EText;
 import javafx.scene.input.KeyCode;
+import model.Room;
 import utils.Animation;
 import utils.ArrayList;
 import utils.CameraView;
@@ -71,7 +72,7 @@ public abstract class GameState {
 
 	}
 
-	protected final ArrayList<Class<? extends GameState>> getFlow() {
+	protected final ArrayList<Class<? extends GameState>> flow() {
 		return Flow.INSTANCE.getFlow();
 	}
 
@@ -89,6 +90,10 @@ public abstract class GameState {
 
 	protected final SelectImageViewManager getSelectImageViewManager() {
 		return SelectImageViewManager.INSTANCE;
+	}
+
+	public void handleRoomPressed(Room room) {
+
 	}
 
 }

@@ -4,9 +4,8 @@ import controller.Credentials;
 import enums.EGuest;
 import enums.ELayerZ;
 import utils.ImageView;
-import utils.Interfaces.IImageViewAble;
 
-public class Guest implements IImageViewAble {
+public class Guest extends Card {
 
 	private GuestModel guestModel = null;
 

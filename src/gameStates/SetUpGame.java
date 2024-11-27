@@ -1,5 +1,7 @@
 package gameStates;
 
+import cards.PlayerAid;
+import controller.Lists;
 import enums.EColor;
 import gameStatesDefault.GameState;
 import model.Room;
@@ -19,6 +21,17 @@ public class SetUpGame extends GameState {
 	public void execute() {
 
 		addStartingKeys();
+		addPlayerAid();
+		proceedToNextGameState();
+
+	}
+
+	private void addPlayerAid() {
+
+		Lists.INSTANCE.annex.getArrayList().addLast(new PlayerAid());
+		Lists.INSTANCE.annex.relocateImageViews();
+
+		Lists.INSTANCE.annex.getArrayList().saveOriginal();
 
 	}
 

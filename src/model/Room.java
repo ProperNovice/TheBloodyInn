@@ -4,11 +4,13 @@ import cards.Guest;
 import tokens.Token;
 import utils.Enums.RearrangeTypeEnum;
 import utils.Enums.RelocateTypeEnum;
+import utils.Flow;
+import utils.Interfaces.ISelectCoordinatesAble;
 import utils.ListCredentials;
 import utils.ListImageViewAbles;
 import utils.Vector2;
 
-public class Room {
+public class Room implements ISelectCoordinatesAble {
 
 	private ListImageViewAbles<Guest> guest = new ListImageViewAbles<>();
 	private ListImageViewAbles<Token> tokens = new ListImageViewAbles<>();
@@ -44,6 +46,16 @@ public class Room {
 
 	public ListImageViewAbles<Token> getTokensList() {
 		return this.tokens;
+	}
+
+	@Override
+	public Vector2 getCoordinatesCenter() {
+		return this.getGuestList().getListCredentials().coordinatesList.clone();
+	}
+
+	@Override
+	public void handleMousePressedPrimary() {
+		Flow.INSTANCE.getGameStateCurrent().handleRoomPressed(this);
 	}
 
 }
