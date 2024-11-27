@@ -51,12 +51,13 @@ public class IndicatorSymbol extends Indicator {
 	@Override
 	protected void relocate() {
 
-		Vector2 coordinates = super.list.getListCredentials().coordinatesList;
+		double x = super.list.getListCredentials().coordinatesList.x;
+		double y = super.list.getListCredentials().coordinatesList.y;
 
 		for (IImageViewAble imageViewAble : super.list) {
 
-			imageViewAble.getImageView().relocateTopLeft(coordinates);
-			coordinates.x += imageViewAble.getImageView().getWidth();
+			imageViewAble.getImageView().relocateTopLeft(x, y);
+			x += imageViewAble.getImageView().getWidth();
 
 		}
 

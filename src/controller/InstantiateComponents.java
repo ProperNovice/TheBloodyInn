@@ -2,7 +2,7 @@ package controller;
 
 import cards.Guest;
 import enums.EGuest;
-import model.Francs;
+import model.Statistics;
 import utils.ArrayList;
 import utils.HashMap;
 
@@ -14,7 +14,7 @@ public enum InstantiateComponents {
 
 		addGuestsNonPeasants();
 		addGuestsPeasants();
-		Francs.values();
+		Statistics.values();
 
 	}
 
