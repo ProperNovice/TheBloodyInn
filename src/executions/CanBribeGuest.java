@@ -2,88 +2,64 @@ package executions;
 
 import cards.Guest;
 import controller.Lists;
+import model.Room;
+import model.Rooms;
 import utils.ArrayList;
-import utils.Interfaces.IImageViewAble;
-import utils.SelectImageViewManager;
 
 public enum CanBribeGuest {
 
 	INSTANCE;
 
-	private ArrayList<Guest> peasantSelected = new ArrayList<>();
-	private ArrayList<Guest> guestsSelectedInTotal = new ArrayList<>();
-	private ArrayList<Guest> guestsRoomsSelected = new ArrayList<>();
+	private ArrayList<Guest> guestsRoomsBistroSelected = new ArrayList<>();
 	private ArrayList<Guest> guestsHandSelected = new ArrayList<>();
 
 	public boolean execute() {
 
-		setupGuestsSelectedInTotal();
-		peasantIsSelected();
-		guestsHandSelected();
+		this.guestsRoomsBistroSelected.clear();
+		this.guestsHandSelected.clear();
+
+		guestsBistroHandSelected();
 		guestsRoomsSelected();
 
-		if (this.peasantSelected.size() + this.guestsRoomsSelected.size() != 1)
+		if (this.guestsRoomsBistroSelected.size() != 1)
 			return false;
 
-		Guest guestSelected = null;
-
-		if (!peasantSelected.isEmpty())
-			guestSelected = this.peasantSelected.getFirst();
-		else
-			guestSelected = this.guestsRoomsSelected.getFirst();
-
+		Guest guestSelected = this.guestsRoomsBistroSelected.getFirst();
 		int rankGuestSelected = guestSelected.getGuestModel().getRank();
 
 		return rankGuestSelected == this.guestsHandSelected.size();
 
 	}
 
-	private void setupGuestsSelectedInTotal() {
+	private void guestsBistroHandSelected() {
 
-		this.guestsSelectedInTotal.clear();
-
-		for (IImageViewAble imageViewAble : SelectImageViewManager.INSTANCE
-				.getSelectedImageViewAbles()) {
-
-			Guest guest = (Guest) imageViewAble;
-			this.guestsSelectedInTotal.addLast(guest);
-
-		}
-
-	}
-
-	private void peasantIsSelected() {
-
-		this.peasantSelected.clear();
-
-		Guest peasant = Lists.INSTANCE.bistro.getArrayList().getFirst();
-
-		if (!this.guestsSelectedInTotal.contains(peasant))
-			return;
-
-		this.guestsSelectedInTotal.remove(peasant);
-		this.peasantSelected.addLast(peasant);
-
-	}
-
-	private void guestsHandSelected() {
-
-		this.guestsHandSelected.clear();
-
-		for (Guest guest : this.guestsSelectedInTotal.clone()) {
-
-			if (!Lists.INSTANCE.hand.getArrayList().contains(guest))
-				continue;
-
-			this.guestsSelectedInTotal.remove(guest);
-			this.guestsHandSelected.addLast(guest);
-
-		}
+		setSelected(this.guestsRoomsBistroSelected, Lists.INSTANCE.bistro.getArrayList());
+		setSelected(this.guestsHandSelected, Lists.INSTANCE.hand.getArrayList());
 
 	}
 
 	private void guestsRoomsSelected() {
-		this.guestsRoomsSelected = this.guestsSelectedInTotal.clone();
+
+		for (Room room : Rooms.INSTANCE.getRooms()) {
+
+			if (room.getGuestList().getArrayList().isEmpty())
+				continue;
+
+			Guest guest = room.getGuestList().getArrayList().getFirst();
+
+			if (guest.isSelected())
+				this.guestsRoomsBistroSelected.addLast(guest);
+
+		}
+
+	}
+
+	private void setSelected(ArrayList<Guest> tempList, ArrayList<Guest> originalList) {
+
+		for (Guest guest : originalList)
+			if (guest.isSelected())
+				tempList.addLast(guest);
+
 	}
 
 }
