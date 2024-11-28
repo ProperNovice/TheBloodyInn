@@ -3,6 +3,7 @@ package symbols;
 import controller.Credentials;
 import enums.ELayerZ;
 import enums.EText;
+import utils.Enums.TextTypeEnum;
 import utils.ImageView;
 import utils.Interfaces.IImageViewAble;
 
@@ -18,8 +19,9 @@ public abstract class Symbol implements IImageViewAble {
 	public void handleMousePressedPrimary() {
 
 		for (EText eText : EText.values())
-			if (eText.getText().containsSymbol(this))
-				eText.getText().handleMousePressedPrimary();
+			if (eText.getTextTypeEnum().equals(TextTypeEnum.OPTION))
+				if (eText.getText().containsSymbol(this))
+					eText.getText().handleMousePressedPrimary();
 
 	}
 

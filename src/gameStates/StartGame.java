@@ -32,8 +32,12 @@ public class StartGame extends GameState {
 		Lists.INSTANCE.entrance.getArrayList().loadOriginal();
 		Lists.INSTANCE.entrance.getArrayList().shuffle();
 
-		for (Guest guest : Lists.INSTANCE.entrance)
+		for (Guest guest : Lists.INSTANCE.entrance) {
+
+			guest.getImageView().flipFront();
 			guest.getImageView().setVisible(true);
+
+		}
 
 		for (int counter = 1; counter <= 26; counter++)
 			Lists.INSTANCE.entrance.getArrayList().removeRandom();

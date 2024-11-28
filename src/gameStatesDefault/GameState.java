@@ -1,9 +1,13 @@
 package gameStatesDefault;
 
+import cards.Guest;
+import cards.GuestModel;
 import controller.Credentials;
+import controller.Lists;
 import enums.EText;
 import javafx.scene.input.KeyCode;
 import model.Room;
+import model.Rooms;
 import utils.Animation;
 import utils.ArrayList;
 import utils.CameraView;
@@ -93,6 +97,32 @@ public abstract class GameState {
 	}
 
 	public void handleRoomPressed(Room room) {
+
+	}
+
+	public final void handleGuestPressed(Guest guest) {
+
+		for (Room room : Rooms.INSTANCE.getRooms())
+			if (room.getGuestList().getArrayList().contains(guest))
+				handleGuestPressedRooms(guest, guest.getGuestModel());
+
+		if (Lists.INSTANCE.hand.getArrayList().contains(guest))
+			handleGuestPressedHand(guest, guest.getGuestModel());
+
+		if (Lists.INSTANCE.bistro.getArrayList().contains(guest))
+			handlePeasantPressedBistro(guest, guest.getGuestModel());
+
+	}
+
+	protected void handleGuestPressedRooms(Guest guest, GuestModel guestModel) {
+
+	}
+
+	protected void handleGuestPressedHand(Guest guest, GuestModel guestModel) {
+
+	}
+
+	protected void handlePeasantPressedBistro(Guest guest, GuestModel guestModel) {
 
 	}
 

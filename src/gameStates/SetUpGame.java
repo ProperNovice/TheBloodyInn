@@ -28,10 +28,10 @@ public class SetUpGame extends GameState {
 
 	private void addPlayerAid() {
 
-		Lists.INSTANCE.annex.getArrayList().addLast(new PlayerAid());
-		Lists.INSTANCE.annex.relocateImageViews();
-
+		Lists.INSTANCE.annex.getArrayList().addFirst(new PlayerAid());
 		Lists.INSTANCE.annex.getArrayList().saveOriginal();
+
+		Lists.INSTANCE.annex.relocateImageViews();
 
 	}
 

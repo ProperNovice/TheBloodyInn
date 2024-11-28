@@ -38,7 +38,6 @@ public enum Lists {
 		listCredentials = this.bistro.getListCredentials();
 		listCredentials.coordinatesList = Credentials.INSTANCE.cBistro;
 		listCredentials.rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
-		listCredentials.showListSize = true;
 
 		// exit
 
