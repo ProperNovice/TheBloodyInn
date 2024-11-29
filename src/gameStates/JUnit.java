@@ -27,6 +27,7 @@ public class JUnit extends GameState {
 		addGuestToHand(EGuest.COUNT);
 		addGuestToHand(EGuest.MONK);
 		addGuestToHand(EGuest.CONCIERGE);
+		addGuestToHand(EGuest.CONCIERGE);
 		addGuestToHand(EGuest.PEASANT_MALE);
 
 		flow().addLast(SetUpGame.class);

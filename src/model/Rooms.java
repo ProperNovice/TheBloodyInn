@@ -1,7 +1,9 @@
 package model;
 
+import cards.Guest;
 import controller.Credentials;
 import utils.ArrayList;
+import utils.ShutDown;
 
 public enum Rooms {
 
@@ -12,6 +14,28 @@ public enum Rooms {
 	private Rooms() {
 
 		createRooms();
+
+	}
+
+	public void removeGuestFromRoom(Guest guest) {
+
+		boolean success = false;
+
+		for (Room room : this.rooms) {
+
+			if (room.getGuestList().getArrayList().isEmpty())
+				continue;
+
+			if (!room.getGuestList().getArrayList().contains(guest))
+				continue;
+
+			room.getGuestList().getArrayList().remove(guest);
+			success = true;
+
+		}
+
+		if (!success)
+			ShutDown.INSTANCE.execute();
 
 	}
 

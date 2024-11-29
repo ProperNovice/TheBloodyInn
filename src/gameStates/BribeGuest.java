@@ -4,6 +4,7 @@ import cards.Guest;
 import cards.GuestModel;
 import enums.EText;
 import executions.CanBribeGuest;
+import executions.ExecuteBribeGuest;
 import gameStatesDefault.GameState;
 
 public class BribeGuest extends GameState {
@@ -19,6 +20,9 @@ public class BribeGuest extends GameState {
 
 	@Override
 	protected void executeTextOption(EText eText) {
+
+		getSelectImageViewManager().releaseSelectImageViews();
+		ExecuteBribeGuest.INSTANCE.execute();
 
 	}
 
