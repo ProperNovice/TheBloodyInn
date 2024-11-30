@@ -14,13 +14,15 @@ public enum EText {
 	NIGHT("Night", TextTypeEnum.INDICATOR), ACTION("Action: ", TextTypeEnum.INDICATOR),
 	CHOOSE_ACTION("Choose action", TextTypeEnum.INDICATOR),
 	BRIBE_GUEST_OPTION("Bribe guest", TextTypeEnum.OPTION),
-	BUILD_ANNEX("Build annex", TextTypeEnum.OPTION), KILL_GUEST("Kill guest", TextTypeEnum.OPTION),
-	BURY_CORPSE("Bury corpse", TextTypeEnum.OPTION),
+	BUILD_ANNEX_OPTION("Build annex", TextTypeEnum.OPTION),
+	KILL_GUEST("Kill guest", TextTypeEnum.OPTION), BURY_CORPSE("Bury corpse", TextTypeEnum.OPTION),
 	PASS_AND_LAUNDER("Pass and launder", TextTypeEnum.OPTION),
 	BRIBE_GUEST_INDICATOR("Bribe guest", TextTypeEnum.INDICATOR),
 	CONTINUE_INDICATOR("Continue", TextTypeEnum.INDICATOR),
 	BRIBE_EXTRA_PEASANT("Bribe extra peasant", TextTypeEnum.INDICATOR),
 	DONT_BRIBE("Don't bribe", TextTypeEnum.OPTION),
+	BUILD_ANNEX_INDICATOR("Build an annex", TextTypeEnum.INDICATOR),
+	CHOOSE_ANNEX_TO_BUILD("Choose annex to build", TextTypeEnum.INDICATOR),
 
 	;
 

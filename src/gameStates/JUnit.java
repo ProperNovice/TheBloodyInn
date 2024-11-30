@@ -23,18 +23,19 @@ public class JUnit extends GameState {
 		addGuestToAnnex(EGuest.MONK);
 		addGuestToAnnex(EGuest.CONCIERGE);
 
-		addGuestToHand(EGuest.BISHOP);
-		addGuestToHand(EGuest.COUNT);
-		addGuestToHand(EGuest.MONK);
-		addGuestToHand(EGuest.CONCIERGE);
+		addGuestToHand(EGuest.BRIGADIER);
 		addGuestToHand(EGuest.CONCIERGE);
 		addGuestToHand(EGuest.PEASANT_MALE);
+		addGuestToHand(EGuest.GARDENER);
+		addGuestToHand(EGuest.BARON);
+		addGuestToHand(EGuest.GARDENER);
 
 		flow().addLast(SetUpGame.class);
 //		flow().addLast(Evening.class);
 //		flow().addLast(Night.class);
 
-		flow().addLast(BribeGuest.class);
+//		flow().addLast(BribeGuest.class);
+		flow().addLast(ChooseAnnexToBuild.class);
 
 		Lists.INSTANCE.entrance.getArrayList().shuffle();
 		Lists.INSTANCE.entrance.relocateImageViews();

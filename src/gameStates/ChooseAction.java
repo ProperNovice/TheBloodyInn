@@ -1,7 +1,7 @@
 package gameStates;
 
-import controller.Lists;
 import enums.EText;
+import executions.GetGuestsToBuildAnnex;
 import gameStatesDefault.GameState;
 import utils.ShutDown;
 
@@ -12,7 +12,7 @@ public abstract class ChooseAction extends GameState {
 
 		EText.NIGHT.show();
 		EText.ACTION.showAdditionally(getAction());
-		EText.CHOOSE_ACTION.show();
+//		EText.CHOOSE_ACTION.show();
 
 		bribeGuest();
 		buildAnnex();
@@ -33,6 +33,10 @@ public abstract class ChooseAction extends GameState {
 			gameStateClass = BribeGuest.class;
 			break;
 
+		case BUILD_ANNEX_OPTION:
+			gameStateClass = ChooseAnnexToBuild.class;
+			break;
+
 		default:
 			ShutDown.INSTANCE.execute();
 			break;
@@ -50,8 +54,8 @@ public abstract class ChooseAction extends GameState {
 
 	private void buildAnnex() {
 
-		if (Lists.INSTANCE.hand.getArrayList().isEmpty())
-			return;
+		if (!GetGuestsToBuildAnnex.INSTANCE.execute().isEmpty())
+			EText.BUILD_ANNEX_OPTION.show();
 
 	}
 

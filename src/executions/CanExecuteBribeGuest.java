@@ -2,7 +2,7 @@ package executions;
 
 import cards.Guest;
 
-public enum CanBribeGuest {
+public enum CanExecuteBribeGuest {
 
 	INSTANCE;
 

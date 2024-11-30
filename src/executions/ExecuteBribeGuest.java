@@ -2,7 +2,6 @@ package executions;
 
 import cards.Guest;
 import controller.Lists;
-import enums.EGuest;
 import enums.EGuestType;
 import model.Rooms;
 import utils.ListImageViewAbles;
@@ -50,8 +49,9 @@ public enum ExecuteBribeGuest {
 
 			ListImageViewAbles<Guest> list = null;
 
-			if (guest.getGuestModel().getEGuest().equals(EGuest.PEASANT_MALE)
-					|| guest.getGuestModel().getEGuest().equals(EGuest.PEASANT_FEMALE))
+			EGuestType eGuestType = guest.getGuestModel().getEGuestType();
+
+			if (eGuestType.equals(EGuestType.PEASANT))
 				list = Lists.INSTANCE.bistro;
 			else
 				list = Lists.INSTANCE.exit;

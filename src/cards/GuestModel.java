@@ -9,12 +9,14 @@ public class GuestModel {
 	private EGuest eGuest = null;
 	private EGuestType eGuestType = null;
 	private int rank = -1, pocketMoney = -1;
+	private boolean canBuildAnnex;
 
 	public GuestModel(EGuest eGuest) {
 
 		this.eGuest = eGuest;
 		this.eGuestType = this.eGuest.getEGuestType();
 		this.rank = this.eGuest.getRank();
+		this.canBuildAnnex = this.eGuestType.canBuildAnnex();
 
 		createPocketMoney();
 
@@ -79,6 +81,10 @@ public class GuestModel {
 
 	public int getPocketMoney() {
 		return this.pocketMoney;
+	}
+
+	public boolean canBuildAnnex() {
+		return this.canBuildAnnex;
 	}
 
 }
