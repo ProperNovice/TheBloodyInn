@@ -88,6 +88,7 @@ public enum SymbolHashmap {
 		this.hashMap.put(":", SymbolRestColon.class);
 		this.hashMap.put("&", SymbolRestAnd.class);
 		this.hashMap.put(" ", SymbolRestSpace.class);
+		this.hashMap.put("'", SymbolRestApostrophe.class);
 
 	}
 

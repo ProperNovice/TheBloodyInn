@@ -19,6 +19,8 @@ public enum EText {
 	PASS_AND_LAUNDER("Pass and launder", TextTypeEnum.OPTION),
 	BRIBE_GUEST_INDICATOR("Bribe guest", TextTypeEnum.INDICATOR),
 	CONTINUE_INDICATOR("Continue", TextTypeEnum.INDICATOR),
+	BRIBE_EXTRA_PEASANT("Bribe extra peasant", TextTypeEnum.INDICATOR),
+	DONT_BRIBE("Don't bribe", TextTypeEnum.OPTION),
 
 	;
 

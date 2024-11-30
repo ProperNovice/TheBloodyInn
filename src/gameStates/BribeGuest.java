@@ -2,6 +2,8 @@ package gameStates;
 
 import cards.Guest;
 import cards.GuestModel;
+import controller.Lists;
+import enums.EGuest;
 import enums.EText;
 import executions.CanBribeGuest;
 import executions.ExecuteBribeGuest;
@@ -23,6 +25,14 @@ public class BribeGuest extends GameState {
 
 		getSelectImageViewManager().releaseSelectImageViews();
 		ExecuteBribeGuest.INSTANCE.execute();
+
+		Guest guest = Lists.INSTANCE.hand.getArrayList().getLast();
+		EGuest eGuest = guest.getGuestModel().getEGuest();
+
+		if (eGuest.equals(EGuest.PEASANT_FEMALE) || eGuest.equals(EGuest.PEASANT_MALE))
+			flow().addFirst(BribePeasant.class);
+
+		proceedToNextGameState();
 
 	}
 
