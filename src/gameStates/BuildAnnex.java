@@ -7,7 +7,7 @@ import enums.EText;
 import executions.GetGuestsToBuildAnnex;
 import gameStatesDefault.GameState;
 
-public class ChooseAnnexToBuild extends GameState {
+public class BuildAnnex extends GameState {
 
 	@Override
 	public void execute() {
@@ -33,6 +33,11 @@ public class ChooseAnnexToBuild extends GameState {
 
 		Lists.INSTANCE.annex.getArrayList().addLast(guest);
 		Lists.INSTANCE.annex.relocateImageViews();
+
+		if (guestModel.getRank() > 0)
+			flow().addFirst(DiscardCardsForBuildingAnnex.class);
+
+		proceedToNextGameState();
 
 	}
 

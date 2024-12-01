@@ -3,6 +3,7 @@ package gameStates;
 import enums.EText;
 import executions.GetGuestsToBuildAnnex;
 import gameStatesDefault.GameState;
+import utils.ArrayList;
 import utils.ShutDown;
 
 public abstract class ChooseAction extends GameState {
@@ -25,16 +26,16 @@ public abstract class ChooseAction extends GameState {
 	@Override
 	protected void executeTextOption(EText eText) {
 
-		Class<? extends GameState> gameStateClass = null;
+		ArrayList<Class<? extends GameState>> list = new ArrayList<>();
 
 		switch (eText) {
 
 		case BRIBE_GUEST_OPTION:
-			gameStateClass = BribeGuest.class;
+			list.addLast(BribeGuest.class);
 			break;
 
 		case BUILD_ANNEX_OPTION:
-			gameStateClass = ChooseAnnexToBuild.class;
+			list.addLast(BuildAnnex.class);
 			break;
 
 		default:
@@ -43,7 +44,7 @@ public abstract class ChooseAction extends GameState {
 
 		}
 
-		flow().addFirst(gameStateClass);
+		flow().addAllFirst(list);
 		proceedToNextGameState();
 
 	}

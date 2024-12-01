@@ -23,6 +23,7 @@ public enum EText {
 	DONT_BRIBE("Don't bribe", TextTypeEnum.OPTION),
 	BUILD_ANNEX_INDICATOR("Build an annex", TextTypeEnum.INDICATOR),
 	CHOOSE_ANNEX_TO_BUILD("Choose annex to build", TextTypeEnum.INDICATOR),
+	CHOOSE_CARDS_TO_DISCARD("Choose cards to discard", TextTypeEnum.INDICATOR),
 
 	;
 

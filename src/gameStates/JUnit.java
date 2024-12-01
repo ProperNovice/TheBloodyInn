@@ -35,7 +35,9 @@ public class JUnit extends GameState {
 //		flow().addLast(Night.class);
 
 //		flow().addLast(BribeGuest.class);
-		flow().addLast(ChooseAnnexToBuild.class);
+//		flow().addLast(ChooseAnnexToBuild.class);
+		flow().addLast(BribePeasant.class);
+//		flow().addLast(DiscardCardsForBuildingAnnex.class);
 
 		Lists.INSTANCE.entrance.getArrayList().shuffle();
 		Lists.INSTANCE.entrance.relocateImageViews();
