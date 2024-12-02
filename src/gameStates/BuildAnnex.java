@@ -32,7 +32,7 @@ public class BuildAnnex extends GameState {
 		AddGuestFromHandToAnnex.INSTANCE.execute(guest);
 
 		int guestRank = guest.getGuestModel().getRank();
-		Statistics.INSTANCE.addAnnex(guestRank);
+		Statistics.INSTANCE.addAnnexAvailable(guestRank);
 
 		if (guestModel.getRank() > 0)
 			flow().addFirst(DiscardCardsForBuildingAnnex.class);

@@ -7,6 +7,7 @@ import gameStatesDefault.GameState;
 import javafx.scene.input.KeyCode;
 import model.Room;
 import model.Rooms;
+import model.Statistics;
 
 public class JUnit extends GameState {
 
@@ -18,30 +19,39 @@ public class JUnit extends GameState {
 		addGuestToRoom(EGuest.MONK);
 		addGuestToRoom(EGuest.NEWSBOY);
 
-		addGuestToAnnex(EGuest.BISHOP);
-		addGuestToAnnex(EGuest.COUNT);
-		addGuestToAnnex(EGuest.MONK);
-		addGuestToAnnex(EGuest.CONCIERGE);
+		addGuestToAnnexAlive(EGuest.BISHOP);
+		addGuestToAnnexAlive(EGuest.COUNT);
+		addGuestToAnnexDead(EGuest.CONCIERGE);
+		addGuestToAnnexAlive(EGuest.MONK);
+		addGuestToAnnexAlive(EGuest.CONCIERGE);
+		addGuestToAnnexDead(EGuest.BISHOP);
 
 		addGuestToHand(EGuest.BRIGADIER);
 		addGuestToHand(EGuest.CONCIERGE);
+		addGuestToHand(EGuest.BISHOP);
 		addGuestToHand(EGuest.PEASANT_MALE);
-		addGuestToHand(EGuest.GARDENER);
-		addGuestToHand(EGuest.BARON);
-		addGuestToHand(EGuest.GARDENER);
+//		addGuestToHand(EGuest.GARDENER);
+		addGuestToHand(EGuest.BREWER);
+//		addGuestToHand(EGuest.BARON);
+		addGuestToHand(EGuest.MONK);
 
 		flow().addLast(SetUpGame.class);
 //		flow().addLast(Evening.class);
 //		flow().addLast(Night.class);
 
 //		flow().addLast(BribeGuest.class);
-		flow().addLast(BuildAnnex.class);
+//		flow().addLast(ChooseActionOne.class);
+		flow().addLast(BuryCorpse.class);
+//		flow().addLast(BuildAnnex.class);
 //		flow().addLast(KillGuest.class);
 //		flow().addLast(BribePeasant.class);
 //		flow().addLast(DiscardCardsForBuildingAnnex.class);
 
 		Lists.INSTANCE.entrance.getArrayList().shuffle();
 		Lists.INSTANCE.entrance.relocateImageViews();
+
+		Statistics.INSTANCE.addCash(30);
+//		Statistics.INSTANCE.reduceAnnexAvailable();
 
 		proceedToNextGameState();
 
@@ -69,9 +79,17 @@ public class JUnit extends GameState {
 
 	}
 
-	public void addGuestToAnnex(EGuest eGuest) {
+	public void addGuestToAnnexAlive(EGuest eGuest) {
 
 		Lists.INSTANCE.annex.getArrayList().addLast(new Guest(eGuest));
+		Lists.INSTANCE.annex.relocateImageViews();
+
+	}
+
+	public void addGuestToAnnexDead(EGuest eGuest) {
+
+		Lists.INSTANCE.annex.getArrayList().addLast(new Guest(eGuest));
+		Lists.INSTANCE.annex.getArrayList().getLast().getImageView().flipBack();
 		Lists.INSTANCE.annex.relocateImageViews();
 
 	}

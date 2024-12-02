@@ -1,12 +1,11 @@
 package gameStates;
 
-import java.util.ArrayList;
-
 import cards.Card;
 import cards.Guest;
 import controller.Lists;
 import enums.EGuestType;
 import enums.EText;
+import utils.ArrayList;
 
 public class DiscardCardsForBuildingAnnex extends DiscardCardsForAction {
 

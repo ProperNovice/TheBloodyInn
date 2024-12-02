@@ -1,13 +1,12 @@
 package gameStates;
 
-import cards.Card;
 import cards.Guest;
-import controller.Lists;
 import enums.EGuestType;
 import enums.EText;
+import states.CorpseBuried;
 import utils.ArrayList;
 
-public class DiscardCardsForKillingGuest extends DiscardCardsForAction {
+public class DiscardCardsToBuryCorpse extends DiscardCardsForAction {
 
 	@Override
 	protected EText getETextShowing() {
@@ -16,16 +15,12 @@ public class DiscardCardsForKillingGuest extends DiscardCardsForAction {
 
 	@Override
 	protected int totalCardsNeedToDiscard() {
-
-		Card card = Lists.INSTANCE.annex.getArrayList().getLast();
-		Guest guest = (Guest) card;
-		return guest.getGuestModel().getRank();
-
+		return CorpseBuried.INSTANCE.get().getGuestModel().getRank();
 	}
 
 	@Override
 	protected EGuestType getGuestTypeToReturnToHand() {
-		return EGuestType.POLICE;
+		return EGuestType.RELIGIOUS;
 	}
 
 	@Override

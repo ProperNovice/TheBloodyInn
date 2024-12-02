@@ -1,13 +1,12 @@
 package gameStates;
 
-import cards.Card;
 import cards.Guest;
 import controller.Lists;
 import enums.EGuestType;
 import enums.EText;
 import utils.ArrayList;
 
-public class DiscardCardsForKillingGuest extends DiscardCardsForAction {
+public class DiscardCardsForBribingGuest extends DiscardCardsForAction {
 
 	@Override
 	protected EText getETextShowing() {
@@ -17,20 +16,24 @@ public class DiscardCardsForKillingGuest extends DiscardCardsForAction {
 	@Override
 	protected int totalCardsNeedToDiscard() {
 
-		Card card = Lists.INSTANCE.annex.getArrayList().getLast();
-		Guest guest = (Guest) card;
+		Guest guest = Lists.INSTANCE.hand.getArrayList().getLast();
 		return guest.getGuestModel().getRank();
 
 	}
 
 	@Override
 	protected EGuestType getGuestTypeToReturnToHand() {
-		return EGuestType.POLICE;
+		return EGuestType.MERCHANT;
 	}
 
 	@Override
 	protected ArrayList<Guest> guestsCantBeDiscarded() {
-		return new ArrayList<>();
+
+		ArrayList<Guest> list = new ArrayList<>();
+		list.addLast(Lists.INSTANCE.hand.getArrayList().getLast());
+
+		return list;
+
 	}
 
 }

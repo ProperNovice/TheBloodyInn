@@ -1,8 +1,11 @@
 package gameStates;
 
 import enums.EText;
+import executions.GetCorpsesToBury;
 import executions.GetGuestsToBuildAnnex;
+import executions.GetGuestsToKill;
 import gameStatesDefault.GameState;
+import model.Statistics;
 import utils.ArrayList;
 import utils.ShutDown;
 
@@ -31,11 +34,19 @@ public abstract class ChooseAction extends GameState {
 		switch (eText) {
 
 		case BRIBE_GUEST_OPTION:
-			list.addLast(ChooseGuestToBribe.class);
+			list.addLast(BribeGuest.class);
 			break;
 
 		case BUILD_ANNEX_OPTION:
 			list.addLast(BuildAnnex.class);
+			break;
+
+		case KILL_GUEST:
+			list.addLast(KillGuest.class);
+			break;
+
+		case BURY_CORPSE:
+			list.addLast(BuryCorpse.class);
 			break;
 
 		default:
@@ -62,9 +73,20 @@ public abstract class ChooseAction extends GameState {
 
 	private void killGuest() {
 
+		if (!GetGuestsToKill.INSTANCE.execute().isEmpty())
+			EText.KILL_GUEST.show();
+
 	}
 
 	private void buryCorpse() {
+
+		if (GetCorpsesToBury.INSTANCE.execute().isEmpty())
+			return;
+
+		if (Statistics.INSTANCE.getAnnexAvailable() == 0)
+			return;
+
+		EText.BURY_CORPSE.show();
 
 	}
 

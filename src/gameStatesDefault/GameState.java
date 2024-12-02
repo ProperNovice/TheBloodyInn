@@ -109,12 +109,19 @@ public abstract class GameState {
 		if (Lists.INSTANCE.hand.getArrayList().contains(guest))
 			handleGuestPressedHand(guest, guest.getGuestModel());
 
+		if (Lists.INSTANCE.annex.getArrayList().contains(guest))
+			handleGuestPressedAnnex(guest, guest.getGuestModel());
+
 		if (Lists.INSTANCE.bistro.getArrayList().contains(guest))
 			handlePeasantPressedBistro(guest, guest.getGuestModel());
 
 	}
 
 	protected void handleGuestPressedRooms(Guest guest, GuestModel guestModel, Room room) {
+
+	}
+
+	protected void handleGuestPressedAnnex(Guest guest, GuestModel guestModel) {
 
 	}
 

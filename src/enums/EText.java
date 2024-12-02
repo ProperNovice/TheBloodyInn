@@ -25,6 +25,7 @@ public enum EText {
 	CHOOSE_CARDS_TO_DISCARD("Choose cards to discard", TextTypeEnum.INDICATOR),
 	CHOOSE_GUEST_TO_KILL("Choose guest to kill", TextTypeEnum.INDICATOR),
 	CHOOSE_GUEST_TO_BRIBE("Choose guest to bribe", TextTypeEnum.INDICATOR),
+	CHOOSE_CORPSE_TO_BURY("Choose corpse to bury", TextTypeEnum.INDICATOR),
 
 	;
 

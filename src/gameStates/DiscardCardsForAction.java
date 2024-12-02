@@ -1,13 +1,12 @@
 package gameStates;
 
-import java.util.ArrayList;
-
 import cards.Guest;
 import cards.GuestModel;
 import controller.Lists;
 import enums.EGuestType;
 import enums.EText;
 import gameStatesDefault.GameState;
+import utils.ArrayList;
 import utils.ListImageViewAbles;
 
 public abstract class DiscardCardsForAction extends GameState {
@@ -40,7 +39,6 @@ public abstract class DiscardCardsForAction extends GameState {
 				continue;
 
 			Lists.INSTANCE.hand.getArrayList().remove(guest);
-			Lists.INSTANCE.hand.relocateImageViews();
 
 			ListImageViewAbles<Guest> list = null;
 
@@ -61,6 +59,10 @@ public abstract class DiscardCardsForAction extends GameState {
 			list.relocateImageViews();
 
 		}
+
+		Lists.INSTANCE.hand.relocateImageViews();
+		Lists.INSTANCE.bistro.relocateImageViews();
+		Lists.INSTANCE.exit.relocateImageViews();
 
 		getSelectImageViewManager().releaseSelectImageViews();
 
