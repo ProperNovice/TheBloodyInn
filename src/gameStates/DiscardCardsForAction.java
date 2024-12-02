@@ -15,6 +15,13 @@ public abstract class DiscardCardsForAction extends GameState {
 	@Override
 	public void execute() {
 
+		if (totalCardsNeedToDiscard() == 0) {
+
+			proceedToNextGameState();
+			return;
+
+		}
+
 		getETextShowing().show();
 
 		int cardsSelected = getSelectImageViewManager().getSelectedImageViewAbles().size();
@@ -32,21 +39,25 @@ public abstract class DiscardCardsForAction extends GameState {
 			if (!guest.isSelected())
 				continue;
 
-			if (getGuestTypeToReturnToHand() != null)
-				if (guest.getGuestModel().getEGuestType().equals(getGuestTypeToReturnToHand()))
-					continue;
-
 			Lists.INSTANCE.hand.getArrayList().remove(guest);
 			Lists.INSTANCE.hand.relocateImageViews();
 
 			ListImageViewAbles<Guest> list = null;
 
-			if (guest.getGuestModel().getEGuestType().equals(EGuestType.PEASANT))
+			if (getGuestTypeToReturnToHand() != null
+					&& guest.getGuestModel().getEGuestType().equals(getGuestTypeToReturnToHand()))
+				list = Lists.INSTANCE.hand;
+
+			else if (guest.getGuestModel().getEGuestType().equals(EGuestType.PEASANT))
 				list = Lists.INSTANCE.bistro;
 			else
 				list = Lists.INSTANCE.exit;
 
-			list.getArrayList().addFirst(guest);
+			if (list.equals(Lists.INSTANCE.hand))
+				list.getArrayList().addLast(guest);
+			else
+				list.getArrayList().addFirst(guest);
+
 			list.relocateImageViews();
 
 		}

@@ -6,6 +6,7 @@ import controller.Lists;
 import enums.EText;
 import executions.GetGuestsToBuildAnnex;
 import gameStatesDefault.GameState;
+import model.Statistics;
 
 public class BuildAnnex extends GameState {
 
@@ -33,6 +34,9 @@ public class BuildAnnex extends GameState {
 
 		Lists.INSTANCE.annex.getArrayList().addLast(guest);
 		Lists.INSTANCE.annex.relocateImageViews();
+
+		int guestRank = guest.getGuestModel().getRank();
+		Statistics.INSTANCE.addAnnex(guestRank);
 
 		if (guestModel.getRank() > 0)
 			flow().addFirst(DiscardCardsForBuildingAnnex.class);

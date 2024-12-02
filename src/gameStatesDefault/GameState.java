@@ -104,7 +104,7 @@ public abstract class GameState {
 
 		for (Room room : Rooms.INSTANCE.getRooms())
 			if (room.getGuestList().getArrayList().contains(guest))
-				handleGuestPressedRooms(guest, guest.getGuestModel());
+				handleGuestPressedRooms(guest, guest.getGuestModel(), room);
 
 		if (Lists.INSTANCE.hand.getArrayList().contains(guest))
 			handleGuestPressedHand(guest, guest.getGuestModel());
@@ -114,7 +114,7 @@ public abstract class GameState {
 
 	}
 
-	protected void handleGuestPressedRooms(Guest guest, GuestModel guestModel) {
+	protected void handleGuestPressedRooms(Guest guest, GuestModel guestModel, Room room) {
 
 	}
 

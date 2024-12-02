@@ -8,6 +8,7 @@ import enums.EText;
 import executions.CanExecuteBribeGuest;
 import executions.ExecuteBribeGuest;
 import gameStatesDefault.GameState;
+import model.Room;
 import states.PeasantsCanBeBribed;
 
 public class BribeGuest extends GameState {
@@ -48,7 +49,7 @@ public class BribeGuest extends GameState {
 	}
 
 	@Override
-	protected void handleGuestPressedRooms(Guest guest, GuestModel guestModel) {
+	protected void handleGuestPressedRooms(Guest guest, GuestModel guestModel, Room room) {
 		executeGuestPressed(guest);
 	}
 
