@@ -17,7 +17,6 @@ public enum EText {
 	BUILD_ANNEX_OPTION("Build annex", TextTypeEnum.OPTION),
 	KILL_GUEST("Kill guest", TextTypeEnum.OPTION), BURY_CORPSE("Bury corpse", TextTypeEnum.OPTION),
 	PASS_AND_LAUNDER("Pass and launder", TextTypeEnum.OPTION),
-	BRIBE_GUEST_INDICATOR("Bribe guest", TextTypeEnum.INDICATOR),
 	CONTINUE_INDICATOR("Continue", TextTypeEnum.INDICATOR),
 	BRIBE_EXTRA_PEASANT("Bribe extra peasant", TextTypeEnum.INDICATOR),
 	DONT_BRIBE("Don't bribe", TextTypeEnum.OPTION),
@@ -25,6 +24,7 @@ public enum EText {
 	CHOOSE_ANNEX_TO_BUILD("Choose annex to build", TextTypeEnum.INDICATOR),
 	CHOOSE_CARDS_TO_DISCARD("Choose cards to discard", TextTypeEnum.INDICATOR),
 	CHOOSE_GUEST_TO_KILL("Choose guest to kill", TextTypeEnum.INDICATOR),
+	CHOOSE_GUEST_TO_BRIBE("Choose guest to bribe", TextTypeEnum.INDICATOR),
 
 	;
 

@@ -31,7 +31,7 @@ public abstract class ChooseAction extends GameState {
 		switch (eText) {
 
 		case BRIBE_GUEST_OPTION:
-			list.addLast(BribeGuest.class);
+			list.addLast(ChooseGuestToBribe.class);
 			break;
 
 		case BUILD_ANNEX_OPTION:

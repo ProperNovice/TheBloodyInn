@@ -2,8 +2,8 @@ package gameStates;
 
 import cards.Guest;
 import cards.GuestModel;
-import controller.Lists;
 import enums.EText;
+import executions.AddGuestFromRoomToAnnexFlipBack;
 import executions.GetGuestsToKill;
 import gameStatesDefault.GameState;
 import model.Room;
@@ -28,11 +28,7 @@ public class ChooseGuestToKill extends GameState {
 
 		concealText();
 		getSelectImageViewManager().releaseSelectImageViews();
-		room.getGuestList().getArrayList().removeFirst();
-		Lists.INSTANCE.annex.getArrayList().addLast(guest);
-		guest.getImageView().flipBack();
-
-		Lists.INSTANCE.annex.relocateImageViews();
+		AddGuestFromRoomToAnnexFlipBack.INSTANCE.execute(guest, room);
 
 		proceedToNextGameState();
 

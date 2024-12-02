@@ -2,8 +2,8 @@ package gameStates;
 
 import cards.Guest;
 import cards.GuestModel;
-import controller.Lists;
 import enums.EText;
+import executions.AddGuestFromHandToAnnex;
 import executions.GetGuestsToBuildAnnex;
 import gameStatesDefault.GameState;
 import model.Statistics;
@@ -29,11 +29,7 @@ public class BuildAnnex extends GameState {
 		concealText();
 		getSelectImageViewManager().releaseSelectImageViews();
 
-		Lists.INSTANCE.hand.getArrayList().remove(guest);
-		Lists.INSTANCE.hand.relocateImageViews();
-
-		Lists.INSTANCE.annex.getArrayList().addLast(guest);
-		Lists.INSTANCE.annex.relocateImageViews();
+		AddGuestFromHandToAnnex.INSTANCE.execute(guest);
 
 		int guestRank = guest.getGuestModel().getRank();
 		Statistics.INSTANCE.addAnnex(guestRank);
