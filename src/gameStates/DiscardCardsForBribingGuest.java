@@ -4,7 +4,6 @@ import cards.Guest;
 import controller.Lists;
 import enums.EGuestType;
 import enums.EText;
-import utils.ArrayList;
 
 public class DiscardCardsForBribingGuest extends DiscardCardsForAction {
 
@@ -27,12 +26,8 @@ public class DiscardCardsForBribingGuest extends DiscardCardsForAction {
 	}
 
 	@Override
-	protected ArrayList<Guest> guestsCantBeDiscarded() {
-
-		ArrayList<Guest> list = new ArrayList<>();
-		list.addLast(Lists.INSTANCE.hand.getArrayList().getLast());
-
-		return list;
+	protected Guest guestCantBeDiscarded() {
+		return Lists.INSTANCE.hand.getArrayList().getLast();
 
 	}
 

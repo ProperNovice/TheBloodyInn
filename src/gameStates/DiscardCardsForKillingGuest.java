@@ -5,7 +5,6 @@ import cards.Guest;
 import controller.Lists;
 import enums.EGuestType;
 import enums.EText;
-import utils.ArrayList;
 
 public class DiscardCardsForKillingGuest extends DiscardCardsForAction {
 
@@ -29,8 +28,8 @@ public class DiscardCardsForKillingGuest extends DiscardCardsForAction {
 	}
 
 	@Override
-	protected ArrayList<Guest> guestsCantBeDiscarded() {
-		return new ArrayList<>();
+	protected Guest guestCantBeDiscarded() {
+		return null;
 	}
 
 }

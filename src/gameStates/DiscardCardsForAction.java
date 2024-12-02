@@ -6,7 +6,6 @@ import controller.Lists;
 import enums.EGuestType;
 import enums.EText;
 import gameStatesDefault.GameState;
-import utils.ArrayList;
 import utils.ListImageViewAbles;
 
 public abstract class DiscardCardsForAction extends GameState {
@@ -73,7 +72,7 @@ public abstract class DiscardCardsForAction extends GameState {
 	@Override
 	protected void handleGuestPressedHand(Guest guest, GuestModel guestModel) {
 
-		if (guestsCantBeDiscarded().contains(guest))
+		if (guestCantBeDiscarded() != null && guestCantBeDiscarded().equals(guest))
 			return;
 
 		concealText();
@@ -88,6 +87,6 @@ public abstract class DiscardCardsForAction extends GameState {
 
 	protected abstract EGuestType getGuestTypeToReturnToHand();
 
-	protected abstract ArrayList<Guest> guestsCantBeDiscarded();
+	protected abstract Guest guestCantBeDiscarded();
 
 }

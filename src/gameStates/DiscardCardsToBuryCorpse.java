@@ -4,7 +4,6 @@ import cards.Guest;
 import enums.EGuestType;
 import enums.EText;
 import states.CorpseBuried;
-import utils.ArrayList;
 
 public class DiscardCardsToBuryCorpse extends DiscardCardsForAction {
 
@@ -24,8 +23,8 @@ public class DiscardCardsToBuryCorpse extends DiscardCardsForAction {
 	}
 
 	@Override
-	protected ArrayList<Guest> guestsCantBeDiscarded() {
-		return new ArrayList<>();
+	protected Guest guestCantBeDiscarded() {
+		return null;
 	}
 
 }
