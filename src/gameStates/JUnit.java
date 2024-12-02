@@ -40,8 +40,8 @@ public class JUnit extends GameState {
 //		flow().addLast(Night.class);
 
 //		flow().addLast(BribeGuest.class);
-//		flow().addLast(ChooseActionOne.class);
-		flow().addLast(BuryCorpse.class);
+		flow().addLast(ChooseActionOne.class);
+//		flow().addLast(BuryCorpse.class);
 //		flow().addLast(BuildAnnex.class);
 //		flow().addLast(KillGuest.class);
 //		flow().addLast(BribePeasant.class);

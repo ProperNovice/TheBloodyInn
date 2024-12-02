@@ -92,6 +92,15 @@ public abstract class ChooseAction extends GameState {
 
 	private void passAndLaunder() {
 
+		EText eText = null;
+
+		if (Statistics.INSTANCE.getAnnexAvailable() >= 10)
+			eText = EText.PASS_AND_LAUNDER;
+		else
+			eText = EText.PASS;
+
+		eText.show();
+
 	}
 
 	protected abstract int getAction();
