@@ -49,6 +49,14 @@ public abstract class ChooseAction extends GameState {
 			list.addLast(BuryCorpse.class);
 			break;
 
+		case PASS_AND_LAUNDER_OPTION:
+			list.addLast(PassAndLaunder.class);
+			break;
+
+		case PASS:
+			list.addLast(PassAndLaunder.class);
+			break;
+
 		default:
 			ShutDown.INSTANCE.execute();
 			break;
@@ -83,7 +91,7 @@ public abstract class ChooseAction extends GameState {
 		if (GetCorpsesToBury.INSTANCE.execute().isEmpty())
 			return;
 
-		if (Statistics.INSTANCE.getAnnexAvailable() == 0)
+		if (Statistics.INSTANCE.getAnnex() == 0)
 			return;
 
 		EText.BURY_CORPSE.show();
@@ -94,8 +102,8 @@ public abstract class ChooseAction extends GameState {
 
 		EText eText = null;
 
-		if (Statistics.INSTANCE.getAnnexAvailable() >= 10)
-			eText = EText.PASS_AND_LAUNDER;
+		if (Statistics.INSTANCE.getCash() >= 10)
+			eText = EText.PASS_AND_LAUNDER_OPTION;
 		else
 			eText = EText.PASS;
 

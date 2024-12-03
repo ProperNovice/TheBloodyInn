@@ -25,7 +25,7 @@ public abstract class DiscardCardsForAction extends GameState {
 		int cardsSelected = getSelectImageViewManager().getSelectedImageViewAbles().size();
 
 		if (cardsSelected == totalCardsNeedToDiscard())
-			EText.CONTINUE_OPTION.show();
+			EText.CONTINUE.show();
 
 	}
 

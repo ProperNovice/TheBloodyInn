@@ -15,6 +15,7 @@ public enum KeyCodeHandler {
 		addKeyCodeEText(KeyCode.W);
 		addKeyCodeEText(KeyCode.E);
 		addKeyCodeEText(KeyCode.R);
+		addKeyCodeEText(KeyCode.T);
 
 		addKeyCodeCameraView(KeyCode.DIGIT1);
 		addKeyCodeCameraView(KeyCode.DIGIT2);

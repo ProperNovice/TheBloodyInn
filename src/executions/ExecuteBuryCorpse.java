@@ -19,7 +19,7 @@ public enum ExecuteBuryCorpse {
 
 		int pocketMoney = guestModel.getPocketMoney();
 		Statistics.INSTANCE.addCash(pocketMoney);
-		Statistics.INSTANCE.reduceAnnexAvailable();
+		Statistics.INSTANCE.reduceAnnex();
 
 	}
 

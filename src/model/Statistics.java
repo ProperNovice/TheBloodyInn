@@ -8,7 +8,7 @@ public enum Statistics {
 
 	INSTANCE;
 
-	private int francChecks = 1, francCash = 5, annexAvailable = 1;
+	private int francChecks = 1, francCash = 5, annex = 1;
 	private IndicatorSymbol francChecksGui, francCashGui, annexGui;
 
 	private Statistics() {
@@ -39,13 +39,13 @@ public enum Statistics {
 		updateGUI();
 	}
 
-	public void addAnnexAvailable(int annex) {
-		this.annexAvailable += annex;
+	public void addAnnex(int annex) {
+		this.annex += annex;
 		updateGUI();
 	}
 
-	public void reduceAnnexAvailable() {
-		this.annexAvailable--;
+	public void reduceAnnex() {
+		this.annex--;
 		updateGUI();
 	}
 
@@ -53,7 +53,7 @@ public enum Statistics {
 
 		this.francChecks = 1;
 		this.francCash = 5;
-		this.annexAvailable = 1;
+		this.annex = 1;
 		updateGUI();
 
 	}
@@ -66,8 +66,8 @@ public enum Statistics {
 		return this.francCash;
 	}
 
-	public int getAnnexAvailable() {
-		return this.annexAvailable;
+	public int getAnnex() {
+		return this.annex;
 	}
 
 	private void updateGUI() {
@@ -82,7 +82,7 @@ public enum Statistics {
 
 		// annex
 
-		this.annexGui.setText("Annex: " + this.annexAvailable);
+		this.annexGui.setText("Annex: " + this.annex);
 
 	}
 
