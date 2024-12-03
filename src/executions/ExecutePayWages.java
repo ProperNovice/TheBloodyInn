@@ -2,6 +2,7 @@ package executions;
 
 import controller.Lists;
 import model.Statistics;
+import states.WagesNeedToBePaid;
 
 public enum ExecutePayWages {
 
@@ -12,9 +13,12 @@ public enum ExecutePayWages {
 		int cashToPay = Lists.INSTANCE.hand.getArrayList().size();
 		int cashAvailable = Statistics.INSTANCE.getCash();
 
-		int cashToExecute = Math.min(cashToPay, cashAvailable);
-		
-		Statistics.INSTANCE.removeCash(cashToExecute);
+		int cashPaid = Math.min(cashToPay, cashAvailable);
+
+		Statistics.INSTANCE.removeCash(cashPaid);
+
+		int wagesNeedToBePaid = cashToPay - cashPaid;
+		WagesNeedToBePaid.INSTANCE.set(wagesNeedToBePaid);
 
 	}
 

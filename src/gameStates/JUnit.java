@@ -41,7 +41,8 @@ public class JUnit extends GameState {
 
 //		flow().addLast(BribeGuest.class);
 //		flow().addLast(ChooseActionOne.class);
-		flow().addLast(TravelersLeave.class);
+		flow().addLast(PayWages.class);
+//		flow().addLast(TravelersLeave.class);
 //		flow().addLast(PoliceInvestigation.class);
 //		flow().addLast(Morning.class);
 //		flow().addLast(BuryCorpse.class);
@@ -53,7 +54,8 @@ public class JUnit extends GameState {
 		Lists.INSTANCE.entrance.getArrayList().shuffle();
 		Lists.INSTANCE.entrance.relocateImageViews();
 
-		Statistics.INSTANCE.addCash(30);
+//		Statistics.INSTANCE.addCash(30);
+		Statistics.INSTANCE.removeCash(2);
 //		Statistics.INSTANCE.reduceAnnexAvailable();
 
 		proceedToNextGameState();

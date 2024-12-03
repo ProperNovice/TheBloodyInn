@@ -28,6 +28,7 @@ public enum EText {
 	PASS("Pass", TextTypeEnum.OPTION), LAUNDER("Launder", TextTypeEnum.OPTION),
 	POLICE_INVESTIGATION("Police investigation", TextTypeEnum.INDICATOR),
 	TRAVELERS_LEAVE("Travelers leave", TextTypeEnum.INDICATOR),
+	PAY_WAGES("Pay wages", TextTypeEnum.INDICATOR),
 
 	;
 
