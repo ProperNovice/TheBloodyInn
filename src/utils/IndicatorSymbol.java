@@ -41,7 +41,7 @@ public class IndicatorSymbol extends Indicator {
 	}
 
 	public final void setText(String string, double dimension) {
-		execute(string, dimension);
+		super.execute(string, dimension);
 	}
 
 	public final void setText(String string) {
