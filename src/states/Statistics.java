@@ -1,4 +1,4 @@
-package model;
+package states;
 
 import controller.Credentials;
 import utils.IndicatorSymbol;

@@ -4,7 +4,7 @@ import cards.Guest;
 import controller.Lists;
 import model.Room;
 import model.Rooms;
-import model.Statistics;
+import states.Statistics;
 import tokens.KeyToken;
 import tokens.KeyTokenNeutral;
 import tokens.Token;

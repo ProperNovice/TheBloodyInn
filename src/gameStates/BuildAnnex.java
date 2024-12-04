@@ -6,7 +6,7 @@ import enums.EText;
 import executions.AddGuestFromHandToAnnex;
 import executions.GetGuestsToBuildAnnex;
 import gameStatesDefault.GameState;
-import model.Statistics;
+import states.Statistics;
 
 public class BuildAnnex extends GameState {
 

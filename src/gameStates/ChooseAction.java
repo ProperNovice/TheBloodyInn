@@ -5,7 +5,7 @@ import executions.GetCorpsesToBury;
 import executions.GetGuestsToBuildAnnex;
 import executions.GetGuestsToKill;
 import gameStatesDefault.GameState;
-import model.Statistics;
+import states.Statistics;
 import utils.ArrayList;
 import utils.ShutDown;
 

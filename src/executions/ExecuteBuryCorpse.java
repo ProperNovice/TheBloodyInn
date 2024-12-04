@@ -3,8 +3,8 @@ package executions;
 import cards.Guest;
 import cards.GuestModel;
 import controller.Lists;
-import model.Statistics;
 import states.CorpseBuried;
+import states.Statistics;
 
 public enum ExecuteBuryCorpse {
 

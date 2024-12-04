@@ -1,7 +1,7 @@
 package executions;
 
 import controller.Lists;
-import model.Statistics;
+import states.Statistics;
 import states.WagesNeedToBePaid;
 
 public enum ExecutePayWages {

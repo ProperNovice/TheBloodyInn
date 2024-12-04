@@ -3,7 +3,7 @@ package gameStates;
 import enums.EText;
 import executions.Launder;
 import gameStatesDefault.GameState;
-import model.Statistics;
+import states.Statistics;
 
 public class PassAndLaunder extends GameState {
 

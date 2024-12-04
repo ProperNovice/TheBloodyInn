@@ -2,7 +2,7 @@ package controller;
 
 import cards.Guest;
 import enums.EGuest;
-import model.Statistics;
+import states.Statistics;
 import utils.ArrayList;
 import utils.HashMap;
 

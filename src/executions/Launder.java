@@ -1,6 +1,6 @@
 package executions;
 
-import model.Statistics;
+import states.Statistics;
 
 public enum Launder {
 
