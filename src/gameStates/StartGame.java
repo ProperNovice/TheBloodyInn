@@ -5,6 +5,7 @@ import controller.Lists;
 import enums.EText;
 import executions.AddPeasantFromBistroToHand;
 import gameStatesDefault.GameState;
+import utils.Enums.ListsSaveLoad;
 
 public class StartGame extends GameState {
 
@@ -18,19 +19,39 @@ public class StartGame extends GameState {
 	@Override
 	protected void executeTextOption(EText eText) {
 
+		ListsSaveLoad.INSTANCE.loadListsOriginal();
+
 		prepareGuests();
-		addPeasants();
+		preparePeasants();
+
+		flow().addFirst(StartNewTurn.class);
+		proceedToNextGameState();
 
 	}
 
-	private void addPeasants() {
+	private void preparePeasants() {
+
+		Lists.INSTANCE.bistro.getArrayList().loadOriginal();
+		Lists.INSTANCE.bistro.getArrayList().shuffle();
+
+		for (Guest guest : Lists.INSTANCE.bistro) {
+
+			guest.getImageView().flipFront();
+			guest.getImageView().setVisible(true);
+
+		}
+
+		Lists.INSTANCE.bistro.relocateImageViews();
+
 		AddPeasantFromBistroToHand.INSTANCE.execute(2);
+
 	}
 
 	private void prepareGuests() {
 
 		Lists.INSTANCE.entrance.getArrayList().loadOriginal();
 		Lists.INSTANCE.entrance.getArrayList().shuffle();
+		Lists.INSTANCE.entrance.relocateImageViews();
 
 		for (Guest guest : Lists.INSTANCE.entrance) {
 

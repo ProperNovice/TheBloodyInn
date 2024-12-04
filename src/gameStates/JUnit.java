@@ -14,6 +14,17 @@ public class JUnit extends GameState {
 	@Override
 	public void execute() {
 
+//		jUnit();
+
+		flow().addLast(SetUpGame.class);
+		flow().addLast(StartGame.class);
+
+		proceedToNextGameState();
+
+	}
+
+	public void jUnit() {
+
 		addGuestToRoom(EGuest.BISHOP);
 		addGuestToRoom(EGuest.COUNT);
 		addGuestToRoom(EGuest.MONK);
@@ -41,13 +52,13 @@ public class JUnit extends GameState {
 
 //		flow().addLast(BribeGuest.class);
 //		flow().addLast(ChooseActionOne.class);
-		flow().addLast(PayWages.class);
+//		flow().addLast(PayWages.class);
 //		flow().addLast(TravelersLeave.class);
 //		flow().addLast(PoliceInvestigation.class);
 //		flow().addLast(Morning.class);
 //		flow().addLast(BuryCorpse.class);
 //		flow().addLast(BuildAnnex.class);
-//		flow().addLast(KillGuest.class);
+		flow().addLast(KillGuest.class);
 //		flow().addLast(BribePeasant.class);
 //		flow().addLast(DiscardCardsForBuildingAnnex.class);
 
@@ -57,8 +68,6 @@ public class JUnit extends GameState {
 //		Statistics.INSTANCE.addCash(30);
 		Statistics.INSTANCE.removeCash(2);
 //		Statistics.INSTANCE.reduceAnnexAvailable();
-
-		proceedToNextGameState();
 
 	}
 
