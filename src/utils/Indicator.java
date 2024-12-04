@@ -1,6 +1,7 @@
 package utils;
 
 import utils.Enums.LayerZListEnum;
+import utils.Enums.ListsSaveLoad;
 import utils.Interfaces.IImageViewAble;
 
 public abstract class Indicator {
@@ -34,6 +35,9 @@ public abstract class Indicator {
 		this.list.getListCredentials().layerZListEnum = LayerZListEnum.TO_BACK_FIRST_IMAGEVIEW;
 
 		this.list.getListCredentials().coordinatesList = vector2;
+
+//		if (this instanceof IndicatorSymbol)
+		ListsSaveLoad.INSTANCE.lists.remove(this.list);
 
 	}
 

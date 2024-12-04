@@ -15,10 +15,8 @@ public class JUnit extends GameState {
 	public void execute() {
 
 //		jUnit();
-//		flow().addLast(SetUpGame.class);
+		flow().addLast(SetUpGame.class);
 		flow().addLast(StartGame.class);
-		
-		Statistics.INSTANCE.addCash(30);
 
 		proceedToNextGameState();
 
@@ -75,8 +73,6 @@ public class JUnit extends GameState {
 
 	@Override
 	protected void handleKeyPressed(KeyCode keyCode) {
-		
-		Statistics.INSTANCE.addCash(3);
 
 	}
 
