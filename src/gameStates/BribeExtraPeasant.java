@@ -13,15 +13,12 @@ public class BribeExtraPeasant extends GameState {
 	@Override
 	public void execute() {
 
-		if (PeasantsCanBeBribed.INSTANCE.canBeBribed()) {
+		if (!Lists.INSTANCE.bistro.getArrayList().isEmpty()
+				&& PeasantsCanBeBribed.INSTANCE.canBeBribed()) {
 
-			if (!Lists.INSTANCE.bistro.getArrayList().isEmpty()) {
-
-				EText.BRIBE_EXTRA_PEASANT.show();
-				EText.DONT_BRIBE.show();
-				Lists.INSTANCE.bistro.getArrayList().getFirst().setSelected();
-
-			}
+			EText.BRIBE_EXTRA_PEASANT.show();
+			EText.DONT_BRIBE.show();
+			Lists.INSTANCE.bistro.getArrayList().getFirst().setSelected();
 
 		} else
 			proceedToNextGameState();

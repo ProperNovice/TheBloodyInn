@@ -4,6 +4,7 @@ import cards.Card;
 import cards.Guest;
 import controller.Lists;
 import enums.EGuest;
+import utils.ArrayList;
 
 public enum AnnexContainGuest {
 
@@ -13,7 +14,10 @@ public enum AnnexContainGuest {
 
 		int count = 0;
 
-		for (Card card : Lists.INSTANCE.annex) {
+		ArrayList<Card> list = Lists.INSTANCE.annex.getArrayList().clone();
+		list.removeLast();
+
+		for (Card card : list) {
 
 			if (!(card instanceof Guest))
 				continue;
