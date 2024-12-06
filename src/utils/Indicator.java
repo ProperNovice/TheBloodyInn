@@ -122,6 +122,7 @@ public abstract class Indicator {
 			return;
 
 		this.list = new ListImageViewAbles<>();
+		ListsSaveLoad.INSTANCE.lists.remove(this.list);
 		this.list.getListCredentials().layerZListEnum = LayerZListEnum.TO_BACK_FIRST_IMAGEVIEW;
 
 	}

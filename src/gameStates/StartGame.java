@@ -70,7 +70,7 @@ public class StartGame extends GameState {
 
 		}
 
-		for (int counter = 1; counter <= 26; counter++)
+		for (int counter = 1; counter <= 58; counter++)
 			Lists.INSTANCE.entrance.getArrayList().removeRandom();
 
 		Lists.INSTANCE.entrance.relocateImageViews();
