@@ -15,8 +15,7 @@ public class JUnit extends GameState {
 	public void execute() {
 
 //		jUnit();
-		flow().addLast(SetUpGame.class);
-		flow().addLast(StartGame.class);
+		normalGame();
 
 		proceedToNextGameState();
 
@@ -76,6 +75,13 @@ public class JUnit extends GameState {
 		Statistics.INSTANCE.addCash(30);
 		Statistics.INSTANCE.removeCash(2);
 //		Statistics.INSTANCE.reduceAnnexAvailable();
+
+	}
+
+	public void normalGame() {
+
+		flow().addLast(SetUpGame.class);
+		flow().addLast(StartGame.class);
 
 	}
 

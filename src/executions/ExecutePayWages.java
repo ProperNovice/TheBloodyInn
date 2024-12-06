@@ -21,7 +21,7 @@ public enum ExecutePayWages {
 		Statistics.INSTANCE.removeCash(cashPaid);
 
 		int wagesNeedToBePaid = cashToPay - cashPaid;
-		WagesNeedToBePaid.INSTANCE.set(wagesNeedToBePaid);
+		WagesNeedToBePaid.INSTANCE.set(Math.max(0, wagesNeedToBePaid));
 
 	}
 
