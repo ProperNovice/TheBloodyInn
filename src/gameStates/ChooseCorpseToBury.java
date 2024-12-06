@@ -16,7 +16,7 @@ public class ChooseCorpseToBury extends GameState {
 			guest.setSelected();
 
 		if (GetCorpsesToBury.INSTANCE.execute().size() == 1)
-			executeBury(GetCorpsesToBury.INSTANCE.execute().getFirst());
+			executeBuryCorpse(GetCorpsesToBury.INSTANCE.execute().getFirst());
 		else
 			EText.CHOOSE_CORPSE_TO_BURY.show();
 
@@ -28,11 +28,11 @@ public class ChooseCorpseToBury extends GameState {
 		if (!guest.isSelected())
 			return;
 
-		executeBury(guest);
+		executeBuryCorpse(guest);
 
 	}
 
-	private void executeBury(Guest guest) {
+	private void executeBuryCorpse(Guest guest) {
 
 		concealText();
 		getSelectImageViewManager().releaseSelectImageViews();
