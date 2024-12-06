@@ -6,6 +6,8 @@ import executions.AddGuestFromReceptionToRoom;
 import gameStatesDefault.GameState;
 import model.Room;
 import model.Rooms;
+import tokens.KeyTokenNeutral;
+import tokens.Token;
 import utils.ArrayList;
 import utils.SelectImageViewManager;
 
@@ -37,7 +39,8 @@ public class WelcomeTraveler extends GameState {
 
 	private void setRoomsAvailable() {
 
-		ArrayList<Room> roomsAvailable = new ArrayList<>(1);
+		ArrayList<Room> roomsAvailable = new ArrayList<>();
+		ArrayList<Room> roomsAvailableOnlyWithNeutralKey = new ArrayList<>();
 
 		for (Room room : Rooms.INSTANCE.getRooms()) {
 
@@ -47,9 +50,19 @@ public class WelcomeTraveler extends GameState {
 			roomsAvailable.addLast(room);
 			room.setSelected();
 
+			if (room.getTokensList().getArrayList().size() > 1)
+				continue;
+
+			Token token = room.getTokensList().getArrayList().getFirst();
+
+			if (!(token instanceof KeyTokenNeutral))
+				continue;
+
+			roomsAvailableOnlyWithNeutralKey.addLast(room);
+
 		}
 
-		if (roomsAvailable.isOverCapacity())
+		if (roomsAvailable.size() > roomsAvailableOnlyWithNeutralKey.size())
 			return;
 
 		handleRoomPressed(roomsAvailable.getFirst());

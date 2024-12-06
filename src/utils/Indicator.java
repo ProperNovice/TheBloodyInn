@@ -36,7 +36,6 @@ public abstract class Indicator {
 
 		this.list.getListCredentials().coordinatesList = vector2;
 
-//		if (this instanceof IndicatorSymbol)
 		ListsSaveLoad.INSTANCE.lists.remove(this.list);
 
 	}

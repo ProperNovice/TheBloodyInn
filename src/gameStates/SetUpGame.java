@@ -90,7 +90,7 @@ public class SetUpGame extends GameState {
 			roomTemp.getTokensList().getArrayList().addLast(keyTokenNeutral);
 			roomTemp.getTokensList().relocateImageViews();
 
-			room.getTokensList().getArrayList().saveOriginal();
+			roomTemp.getTokensList().getArrayList().saveOriginal();
 
 		}
 
