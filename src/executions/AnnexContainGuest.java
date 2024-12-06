@@ -15,7 +15,6 @@ public enum AnnexContainGuest {
 		int count = 0;
 
 		ArrayList<Card> list = Lists.INSTANCE.annex.getArrayList().clone();
-		list.removeLast();
 
 		for (Card card : list) {
 
