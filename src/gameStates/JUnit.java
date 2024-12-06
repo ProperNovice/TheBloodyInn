@@ -14,9 +14,9 @@ public class JUnit extends GameState {
 	@Override
 	public void execute() {
 
-		jUnit();
-//		flow().addLast(SetUpGame.class);
-//		flow().addLast(StartGame.class);
+//		jUnit();
+		flow().addLast(SetUpGame.class);
+		flow().addLast(StartGame.class);
 
 		proceedToNextGameState();
 

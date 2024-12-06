@@ -24,8 +24,9 @@ public class StartGame extends GameState {
 	@Override
 	protected void executeTextOption(EText eText) {
 
-		handleRoomTokens();
+		handleRoomTokens(false);
 		ListsSaveLoad.INSTANCE.loadListsOriginal();
+		handleRoomTokens(true);
 
 		prepareGuests();
 		preparePeasants();
@@ -76,12 +77,14 @@ public class StartGame extends GameState {
 
 	}
 
-	private void handleRoomTokens() {
+	private void handleRoomTokens(boolean value) {
 
 		for (Room room : Rooms.INSTANCE.getRooms()) {
 
 			for (Token token : room.getTokensList())
-				token.getImageView().setVisible(false);
+				token.getImageView().setVisible(value);
+
+			room.getTokensList().relocateImageViews();
 
 		}
 

@@ -32,6 +32,7 @@ public enum EText {
 	START_NEW_TURN("Start new turn", TextTypeEnum.INDICATOR),
 	SHUFFLE_GUESTS("Shuffle guests", TextTypeEnum.INDICATOR),
 	CHOOSE_KEY_TO_REPLACE("Choose key to replace", TextTypeEnum.INDICATOR),
+	CHOOSE_ROOM_TO_PLACE_SERCVICE("Choose room to place service", TextTypeEnum.INDICATOR),
 
 	;
 
