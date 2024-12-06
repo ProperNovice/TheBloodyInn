@@ -2,6 +2,7 @@ package executions;
 
 import cards.Guest;
 import controller.Lists;
+import enums.EGuest;
 import utils.ArrayList;
 
 public enum GetGuestsToBuildAnnex {
@@ -19,7 +20,9 @@ public enum GetGuestsToBuildAnnex {
 
 			int guestRank = guest.getGuestModel().getRank();
 
-			if (Lists.INSTANCE.hand.getArrayList().size() <= guestRank)
+			int mechanicGuest = AnnexContainGuest.INSTANCE.execute(EGuest.MECHANIC);
+
+			if (Lists.INSTANCE.hand.getArrayList().size() + mechanicGuest <= guestRank)
 				continue;
 
 			list.addLast(guest);

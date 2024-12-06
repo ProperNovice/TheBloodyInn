@@ -2,6 +2,7 @@ package executions;
 
 import cards.Guest;
 import controller.Lists;
+import enums.EGuest;
 import model.Room;
 import model.Rooms;
 import utils.ArrayList;
@@ -25,7 +26,9 @@ public enum GetGuestsCanBeBribed {
 			Guest guest = room.getGuestList().getArrayList().getFirst();
 			int guestRank = guest.getGuestModel().getRank();
 
-			if (guestRank > Lists.INSTANCE.hand.getArrayList().size())
+			int representativeGuest = AnnexContainGuest.INSTANCE.execute(EGuest.REPRESENTATIVE);
+
+			if (guestRank > Lists.INSTANCE.hand.getArrayList().size() + representativeGuest)
 				continue;
 
 			list.addLast(guest);
