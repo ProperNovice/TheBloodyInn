@@ -58,6 +58,18 @@ public enum AddGuestFromHandToAnnex {
 			Statistics.INSTANCE.addCash(getAnnexesBuildOfEGuestType(EGuestType.ARTISAN));
 			break;
 
+		case BISHOP:
+			Statistics.INSTANCE.addCash(4);
+
+		case DUKE:
+			Statistics.INSTANCE.addCash(4);
+
+		case GROCER:
+			Statistics.INSTANCE.addCash(4);
+
+		case LANDSCAPER:
+			Statistics.INSTANCE.addCash(4);
+
 		default:
 			break;
 

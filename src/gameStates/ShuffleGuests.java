@@ -1,14 +1,16 @@
 package gameStates;
 
 import enums.EText;
+import executions.ShuffleExitToEntrance;
 import gameStatesDefault.GameState;
+import states.DeckRun;
 
-public class StartNewTurn extends GameState {
+public class ShuffleGuests extends GameState {
 
 	@Override
 	public void execute() {
 
-		EText.START_NEW_TURN.show();
+		EText.SHUFFLE_GUESTS.show();
 		EText.CONTINUE.show();
 
 	}
@@ -16,10 +18,8 @@ public class StartNewTurn extends GameState {
 	@Override
 	protected void executeTextOption(EText eText) {
 
-		flow().addLast(Evening.class);
-		flow().addLast(Night.class);
-		flow().addLast(Morning.class);
-		flow().addLast(EndTurn.class);
+		ShuffleExitToEntrance.INSTANCE.execute();
+		DeckRun.INSTANCE.setSecond();
 
 		proceedToNextGameState();
 

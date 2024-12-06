@@ -1,6 +1,5 @@
 package gameStates;
 
-import controller.Lists;
 import enums.EText;
 import executions.AddGuestFromEntranceToReception;
 import executions.AddGuestFromReceptionToRoom;
@@ -16,8 +15,6 @@ public class WelcomeTraveler extends GameState {
 
 	@Override
 	public void execute() {
-		
-		System.out.println(Lists.INSTANCE.entrance.getArrayList().size());
 
 		EText.EVENING.show();
 		EText.CHOOSE_ROOM.show();
