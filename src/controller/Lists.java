@@ -44,6 +44,7 @@ public enum Lists {
 		listCredentials = this.exit.getListCredentials();
 		listCredentials.coordinatesList = Credentials.INSTANCE.cExit;
 		listCredentials.rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
+		listCredentials.showListSize = true;
 
 		// annex
 

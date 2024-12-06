@@ -89,7 +89,7 @@ public enum Statistics {
 	private void createIndicators() {
 
 		double dimensions = Credentials.INSTANCE.textHeight;
-		Vector2 vector2 = Credentials.INSTANCE.cFranc;
+		Vector2 vector2 = Credentials.INSTANCE.cStatistics;
 
 		// franc checks
 

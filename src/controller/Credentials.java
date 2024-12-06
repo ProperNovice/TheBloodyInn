@@ -18,7 +18,7 @@ public enum Credentials {
 	public boolean primaryStageFullScreen = false;
 
 	public Vector2 dCard, dCardAndGapBetweenComponents;
-	public Vector2 cEntrance, cReception, cBistro, cExit, cRooms, cAnnex, cHand, cFranc;
+	public Vector2 cEntrance, cReception, cBistro, cExit, cRooms, cAnnex, cHand, cStatistics;
 
 	private Credentials() {
 
@@ -45,13 +45,6 @@ public enum Credentials {
 		// camera view
 
 		this.dCameraView = new Vector2(1, 1);
-
-		// c text panel
-
-		x = 1300;
-		y = 100;
-
-		this.cTextPanel = new Vector2(x, y);
 
 		// c image view indicator
 
@@ -119,8 +112,13 @@ public enum Credentials {
 
 		// c franc
 
-		this.cFranc = this.cExit.clone();
-		this.cFranc.addX(this.dCardAndGapBetweenComponents);
+		this.cStatistics = this.cExit.clone();
+		this.cStatistics.addX(this.dCardAndGapBetweenComponents);
+
+		// c text panel
+
+		this.cTextPanel = this.cStatistics.clone();
+		this.cTextPanel.addX(250);
 
 	}
 

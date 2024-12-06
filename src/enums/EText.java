@@ -29,6 +29,7 @@ public enum EText {
 	POLICE_INVESTIGATION("Police investigation", TextTypeEnum.INDICATOR),
 	TRAVELERS_LEAVE("Travelers leave", TextTypeEnum.INDICATOR),
 	PAY_WAGES("Pay wages", TextTypeEnum.INDICATOR),
+	START_NEW_TURN("Start new turn", TextTypeEnum.INDICATOR),
 
 	;
 

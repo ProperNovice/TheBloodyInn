@@ -8,6 +8,7 @@ import javafx.scene.input.KeyCode;
 import model.Room;
 import model.Rooms;
 import states.Statistics;
+import utils.ArrayList;
 
 public class JUnit extends GameState {
 
@@ -24,10 +25,10 @@ public class JUnit extends GameState {
 
 	public void jUnit() {
 
-		addGuestToRoom(EGuest.BISHOP);
-		addGuestToRoom(EGuest.COUNT);
-		addGuestToRoom(EGuest.MONK);
-		addGuestToRoom(EGuest.NEWSBOY);
+//		addGuestToRoom(EGuest.BISHOP);
+//		addGuestToRoom(EGuest.COUNT);
+//		addGuestToRoom(EGuest.MONK);
+//		addGuestToRoom(EGuest.NEWSBOY);
 
 		addGuestToAnnexAlive(EGuest.BISHOP);
 		addGuestToAnnexAlive(EGuest.COUNT);
@@ -48,11 +49,13 @@ public class JUnit extends GameState {
 		flow().addLast(SetUpGame.class);
 //		flow().addLast(Evening.class);
 //		flow().addLast(Night.class);
+//		flow().addLast(Morning.class);
+		flow().addLast(StartNewTurn.class);
 
 //		flow().addLast(BribeGuest.class);
 //		flow().addLast(ChooseActionOne.class);
-		flow().addLast(PayWages.class);
-		flow().addLast(TravelersLeave.class);
+//		flow().addLast(PayWages.class);
+//		flow().addLast(TravelersLeave.class);
 //		flow().addLast(PayWages.class);
 //		flow().addLast(PoliceInvestigation.class);
 //		flow().addLast(Morning.class);
@@ -63,7 +66,12 @@ public class JUnit extends GameState {
 //		flow().addLast(DiscardCardsForBuildingAnnex.class);
 
 		Lists.INSTANCE.entrance.getArrayList().shuffle();
+
+		ArrayList<Guest> l = Lists.INSTANCE.entrance.getArrayList().clear();
+		Lists.INSTANCE.exit.getArrayList().addAllLast(l);
+
 		Lists.INSTANCE.entrance.relocateImageViews();
+		Lists.INSTANCE.exit.relocateImageViews();
 
 		Statistics.INSTANCE.addCash(30);
 		Statistics.INSTANCE.removeCash(2);

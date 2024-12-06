@@ -5,6 +5,7 @@ import controller.Lists;
 import enums.EText;
 import executions.AddPeasantFromBistroToHand;
 import gameStatesDefault.GameState;
+import states.DeckRun;
 import utils.Enums.ListsSaveLoad;
 
 public class StartGame extends GameState {
@@ -23,6 +24,7 @@ public class StartGame extends GameState {
 
 		prepareGuests();
 		preparePeasants();
+		DeckRun.INSTANCE.setFirst();
 
 		flow().addFirst(StartNewTurn.class);
 		proceedToNextGameState();
