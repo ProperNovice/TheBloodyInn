@@ -31,6 +31,7 @@ public enum EText {
 	PAY_WAGES("Pay wages", TextTypeEnum.INDICATOR),
 	START_NEW_TURN("Start new turn", TextTypeEnum.INDICATOR),
 	SHUFFLE_GUESTS("Shuffle guests", TextTypeEnum.INDICATOR),
+	CHOOSE_KEY_TO_REPLACE("Choose key to replace", TextTypeEnum.INDICATOR),
 
 	;
 

@@ -39,4 +39,19 @@ public class DiscardCardsForBuildingAnnex extends DiscardCardsForAction {
 		return EGuest.MECHANIC;
 	}
 
+	@Override
+	protected void executeBeforeProceedToNextGameState() {
+
+		// checking for monk
+
+		Card card = Lists.INSTANCE.annex.getArrayList().getLast();
+		Guest guest = (Guest) card;
+
+		if (!guest.getGuestModel().getEGuest().equals(EGuest.MONK))
+			return;
+
+		flow().addFirst(ReplaceNeutralKey.class);
+
+	}
+
 }

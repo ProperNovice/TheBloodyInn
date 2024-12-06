@@ -2,7 +2,7 @@ package tokens;
 
 import enums.EColor;
 
-public class KeyTokenYellow extends KeyToken {
+public class RoomServiceTokenYellow extends RoomServiceToken {
 
 	@Override
 	public EColor getEColor() {

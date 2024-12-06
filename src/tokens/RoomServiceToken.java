@@ -1,20 +1,14 @@
 package tokens;
 
-import controller.Credentials;
-import enums.EColor;
-import enums.ELayerZ;
-import utils.ImageView;
+public abstract class RoomServiceToken extends Token {
 
-public class RoomServiceToken extends Token {
+	public RoomServiceToken() {
 
-	public RoomServiceToken(EColor eColor) {
+	}
 
-		String fileName = "room service/";
-		fileName += eColor.toString().toLowerCase();
-		fileName += ".jpg";
-		new ImageView(fileName, ELayerZ.TOKENS, this);
-		getImageView().setWidthScale(Credentials.INSTANCE.dCard.x / 2);
-
+	@Override
+	protected String getFolder() {
+		return "room service";
 	}
 
 }

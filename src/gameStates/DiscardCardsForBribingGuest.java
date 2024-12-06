@@ -37,4 +37,9 @@ public class DiscardCardsForBribingGuest extends DiscardCardsForAction {
 		return EGuest.REPRESENTATIVE;
 	}
 
+	@Override
+	protected void executeBeforeProceedToNextGameState() {
+
+	}
+
 }

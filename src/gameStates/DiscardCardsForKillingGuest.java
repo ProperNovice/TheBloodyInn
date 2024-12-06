@@ -38,4 +38,9 @@ public class DiscardCardsForKillingGuest extends DiscardCardsForAction {
 		return EGuest.ABBOT;
 	}
 
+	@Override
+	protected void executeBeforeProceedToNextGameState() {
+
+	}
+
 }

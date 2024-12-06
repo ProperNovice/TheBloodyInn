@@ -60,15 +60,19 @@ public enum AddGuestFromHandToAnnex {
 
 		case BISHOP:
 			Statistics.INSTANCE.addCash(4);
+			break;
 
 		case DUKE:
 			Statistics.INSTANCE.addCash(4);
+			break;
 
 		case GROCER:
 			Statistics.INSTANCE.addCash(4);
+			break;
 
 		case LANDSCAPER:
 			Statistics.INSTANCE.addCash(4);
+			break;
 
 		default:
 			break;

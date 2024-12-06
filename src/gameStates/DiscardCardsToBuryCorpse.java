@@ -33,4 +33,9 @@ public class DiscardCardsToBuryCorpse extends DiscardCardsForAction {
 		return null;
 	}
 
+	@Override
+	protected void executeBeforeProceedToNextGameState() {
+
+	}
+
 }

@@ -71,6 +71,7 @@ public abstract class DiscardCardsForAction extends GameState {
 
 		getSelectImageViewManager().releaseSelectImageViews();
 
+		executeBeforeProceedToNextGameState();
 		proceedToNextGameState();
 
 	}
@@ -95,8 +96,9 @@ public abstract class DiscardCardsForAction extends GameState {
 			return;
 
 		int count = AnnexContainGuest.INSTANCE.execute(guestInAnnexToLowerDiscardCost());
+
 		this.totalCardsNeedToDiscard -= count;
-		this.totalCardsNeedToDiscard = Math.max(count, 0);
+		this.totalCardsNeedToDiscard = Math.max(this.totalCardsNeedToDiscard, 0);
 
 	}
 
@@ -109,5 +111,7 @@ public abstract class DiscardCardsForAction extends GameState {
 	protected abstract EGuestType getGuestTypeToReturnToHand();
 
 	protected abstract Guest guestCantBeDiscarded();
+
+	protected abstract void executeBeforeProceedToNextGameState();
 
 }

@@ -5,7 +5,7 @@ import enums.EColor;
 public class KeyTokenBlue extends KeyToken {
 
 	@Override
-	protected EColor getEColor() {
+	public EColor getEColor() {
 		return EColor.BLUE;
 	}
 

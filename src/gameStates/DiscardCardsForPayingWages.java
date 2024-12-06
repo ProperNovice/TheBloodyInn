@@ -33,4 +33,9 @@ public class DiscardCardsForPayingWages extends DiscardCardsForAction {
 		return null;
 	}
 
+	@Override
+	protected void executeBeforeProceedToNextGameState() {
+
+	}
+
 }

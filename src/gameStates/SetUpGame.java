@@ -6,12 +6,9 @@ import enums.EColor;
 import gameStatesDefault.GameState;
 import model.Room;
 import model.Rooms;
+import model.TokenManager;
 import tokens.KeyToken;
-import tokens.KeyTokenBlue;
-import tokens.KeyTokenGreen;
 import tokens.KeyTokenNeutral;
-import tokens.KeyTokenRed;
-import tokens.KeyTokenYellow;
 import utils.ArrayList;
 import utils.ObjectPool;
 
@@ -47,37 +44,12 @@ public class SetUpGame extends GameState {
 			eColor = new ArrayList<>(EColor.values()).removeRandom();
 		} while (eColor == EColor.NEUTRAL);
 
-		Class<? extends KeyToken> keyTokenClass = null;
-
-		switch (eColor) {
-
-		case BLUE:
-			keyTokenClass = KeyTokenBlue.class;
-			break;
-
-		case GREEN:
-			keyTokenClass = KeyTokenGreen.class;
-			break;
-
-		case RED:
-			keyTokenClass = KeyTokenRed.class;
-			break;
-
-		case YELLOW:
-			keyTokenClass = KeyTokenYellow.class;
-			break;
-
-		default:
-			break;
-
-		}
-
-		KeyToken keyToken = ObjectPool.INSTANCE.acquire(keyTokenClass);
+		KeyToken keyToken = TokenManager.INSTANCE.getKeyToken(eColor);
 
 		room.getTokensList().getArrayList().addLast(keyToken);
-		room.getTokensList().relocateImageViews();
-
 		room.getTokensList().getArrayList().saveOriginal();
+
+		room.getTokensList().relocateImageViews();
 
 		// subsequent room
 
