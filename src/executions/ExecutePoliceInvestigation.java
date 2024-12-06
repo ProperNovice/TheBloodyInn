@@ -1,10 +1,9 @@
 package executions;
 
+import cards.Card;
 import cards.Guest;
-import enums.EGuestType;
+import controller.Lists;
 import gameStatesDefault.EndGameLost;
-import model.Room;
-import model.Rooms;
 import utils.Flow;
 
 public enum ExecutePoliceInvestigation {
@@ -13,25 +12,26 @@ public enum ExecutePoliceInvestigation {
 
 	public void execute() {
 
-		if (GetCorpsesToBury.INSTANCE.execute().isEmpty())
-			return;
+		boolean corpseFound = false;
 
-		for (Room room : Rooms.INSTANCE.getRooms()) {
+		for (Card card : Lists.INSTANCE.annex) {
 
-			if (room.getGuestList().getArrayList().isEmpty())
+			if (!(card instanceof Guest))
 				continue;
 
-			Guest guest = room.getGuestList().getArrayList().getFirst();
-			EGuestType eGuestType = guest.getGuestModel().getEGuestType();
+			Guest guest = (Guest) card;
 
-			if (!eGuestType.equals(EGuestType.POLICE))
+			if (guest.getImageView().isFlippedFront())
 				continue;
 
-			Flow.INSTANCE.getFlow().addFirst(EndGameLost.class);
-
-			return;
+			corpseFound = true;
 
 		}
+
+		if (!corpseFound)
+			return;
+
+		Flow.INSTANCE.getFlow().addFirst(EndGameLost.class);
 
 	}
 
