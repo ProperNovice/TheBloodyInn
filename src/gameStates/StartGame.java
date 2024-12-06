@@ -5,7 +5,11 @@ import controller.Lists;
 import enums.EText;
 import executions.AddPeasantFromBistroToHand;
 import gameStatesDefault.GameState;
+import model.Room;
+import model.Rooms;
 import states.DeckRun;
+import states.Statistics;
+import tokens.Token;
 import utils.Enums.ListsSaveLoad;
 
 public class StartGame extends GameState {
@@ -20,10 +24,13 @@ public class StartGame extends GameState {
 	@Override
 	protected void executeTextOption(EText eText) {
 
+		handleRoomTokens();
 		ListsSaveLoad.INSTANCE.loadListsOriginal();
 
 		prepareGuests();
 		preparePeasants();
+
+		Statistics.INSTANCE.resetIndicators();
 		DeckRun.INSTANCE.setFirst();
 
 		flow().addFirst(StartNewTurn.class);
@@ -66,6 +73,17 @@ public class StartGame extends GameState {
 			Lists.INSTANCE.entrance.getArrayList().removeRandom();
 
 		Lists.INSTANCE.entrance.relocateImageViews();
+
+	}
+
+	private void handleRoomTokens() {
+
+		for (Room room : Rooms.INSTANCE.getRooms()) {
+
+			for (Token token : room.getTokensList())
+				token.getImageView().setVisible(false);
+
+		}
 
 	}
 

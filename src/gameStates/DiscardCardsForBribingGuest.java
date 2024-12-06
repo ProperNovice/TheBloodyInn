@@ -2,6 +2,7 @@ package gameStates;
 
 import cards.Guest;
 import controller.Lists;
+import enums.EGuest;
 import enums.EGuestType;
 import enums.EText;
 
@@ -29,6 +30,11 @@ public class DiscardCardsForBribingGuest extends DiscardCardsForAction {
 	protected Guest guestCantBeDiscarded() {
 		return Lists.INSTANCE.hand.getArrayList().getLast();
 
+	}
+
+	@Override
+	protected EGuest guestInAnnexToLowerDiscardCost() {
+		return EGuest.REPRESENTATIVE;
 	}
 
 }

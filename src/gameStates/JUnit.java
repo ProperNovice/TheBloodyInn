@@ -8,16 +8,15 @@ import javafx.scene.input.KeyCode;
 import model.Room;
 import model.Rooms;
 import states.Statistics;
-import utils.ArrayList;
 
 public class JUnit extends GameState {
 
 	@Override
 	public void execute() {
 
-//		jUnit();
-		flow().addLast(SetUpGame.class);
-		flow().addLast(StartGame.class);
+		jUnit();
+//		flow().addLast(SetUpGame.class);
+//		flow().addLast(StartGame.class);
 
 		proceedToNextGameState();
 
@@ -25,19 +24,20 @@ public class JUnit extends GameState {
 
 	public void jUnit() {
 
-//		addGuestToRoom(EGuest.BISHOP);
-//		addGuestToRoom(EGuest.COUNT);
-//		addGuestToRoom(EGuest.MONK);
-//		addGuestToRoom(EGuest.NEWSBOY);
+		addGuestToRoom(EGuest.BISHOP);
+		addGuestToRoom(EGuest.COUNT);
+		addGuestToRoom(EGuest.MONK);
+		addGuestToRoom(EGuest.NEWSBOY);
 
 		addGuestToAnnexAlive(EGuest.BISHOP);
-		addGuestToAnnexAlive(EGuest.COUNT);
+		addGuestToAnnexAlive(EGuest.ABBOT);
+		addGuestToAnnexAlive(EGuest.REPRESENTATIVE);
 		addGuestToAnnexDead(EGuest.CONCIERGE);
 		addGuestToAnnexAlive(EGuest.MONK);
 		addGuestToAnnexAlive(EGuest.CONCIERGE);
 		addGuestToAnnexDead(EGuest.BISHOP);
 
-		addGuestToHand(EGuest.BRIGADIER);
+		addGuestToHand(EGuest.NEWSBOY);
 		addGuestToHand(EGuest.CONCIERGE);
 		addGuestToHand(EGuest.BISHOP);
 		addGuestToHand(EGuest.PEASANT_MALE);
@@ -50,10 +50,10 @@ public class JUnit extends GameState {
 //		flow().addLast(Evening.class);
 //		flow().addLast(Night.class);
 //		flow().addLast(Morning.class);
-		flow().addLast(StartNewTurn.class);
+//		flow().addLast(StartNewTurn.class);
 
 //		flow().addLast(BribeGuest.class);
-//		flow().addLast(ChooseActionOne.class);
+		flow().addLast(ChooseActionOne.class);
 //		flow().addLast(PayWages.class);
 //		flow().addLast(TravelersLeave.class);
 //		flow().addLast(PayWages.class);
@@ -67,8 +67,8 @@ public class JUnit extends GameState {
 
 		Lists.INSTANCE.entrance.getArrayList().shuffle();
 
-		ArrayList<Guest> l = Lists.INSTANCE.entrance.getArrayList().clear();
-		Lists.INSTANCE.exit.getArrayList().addAllLast(l);
+//		ArrayList<Guest> l = Lists.INSTANCE.entrance.getArrayList().clear();
+//		Lists.INSTANCE.exit.getArrayList().addAllLast(l);
 
 		Lists.INSTANCE.entrance.relocateImageViews();
 		Lists.INSTANCE.exit.relocateImageViews();

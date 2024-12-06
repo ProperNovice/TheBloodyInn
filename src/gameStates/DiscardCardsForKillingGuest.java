@@ -3,6 +3,7 @@ package gameStates;
 import cards.Card;
 import cards.Guest;
 import controller.Lists;
+import enums.EGuest;
 import enums.EGuestType;
 import enums.EText;
 
@@ -30,6 +31,11 @@ public class DiscardCardsForKillingGuest extends DiscardCardsForAction {
 	@Override
 	protected Guest guestCantBeDiscarded() {
 		return null;
+	}
+
+	@Override
+	protected EGuest guestInAnnexToLowerDiscardCost() {
+		return EGuest.ABBOT;
 	}
 
 }

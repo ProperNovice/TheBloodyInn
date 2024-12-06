@@ -16,7 +16,6 @@ public abstract class ChooseAction extends GameState {
 
 		EText.NIGHT.show();
 		EText.ACTION.showAdditionally(getAction());
-//		EText.CHOOSE_ACTION.show();
 
 		bribeGuest();
 		buildAnnex();

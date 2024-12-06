@@ -21,8 +21,13 @@ public enum AnnexContainGuest {
 			Guest guest = (Guest) card;
 			EGuest eGuestTemp = guest.getGuestModel().getEGuest();
 
-			if (eGuest.equals(eGuestTemp))
-				count++;
+			if (!eGuest.equals(eGuestTemp))
+				continue;
+
+			if (guest.getImageView().isFlippedBack())
+				continue;
+
+			count++;
 
 		}
 

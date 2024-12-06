@@ -3,17 +3,23 @@ package gameStates;
 import cards.Guest;
 import cards.GuestModel;
 import controller.Lists;
+import enums.EGuest;
 import enums.EGuestType;
 import enums.EText;
+import executions.AnnexContainGuest;
 import gameStatesDefault.GameState;
 import utils.ListImageViewAbles;
 
 public abstract class DiscardCardsForAction extends GameState {
 
+	private int totalCardsNeedToDiscard = -1;
+
 	@Override
 	public void execute() {
 
-		if (totalCardsNeedToDiscard() == 0) {
+		setTotalCardsNeedToDiscard();
+
+		if (this.totalCardsNeedToDiscard == 0) {
 
 			proceedToNextGameState();
 			return;
@@ -24,7 +30,7 @@ public abstract class DiscardCardsForAction extends GameState {
 
 		int cardsSelected = getSelectImageViewManager().getSelectedImageViewAbles().size();
 
-		if (cardsSelected == totalCardsNeedToDiscard())
+		if (cardsSelected == this.totalCardsNeedToDiscard)
 			EText.CONTINUE.show();
 
 	}
@@ -81,9 +87,24 @@ public abstract class DiscardCardsForAction extends GameState {
 
 	}
 
+	private void setTotalCardsNeedToDiscard() {
+
+		this.totalCardsNeedToDiscard = totalCardsNeedToDiscard();
+
+		if (guestInAnnexToLowerDiscardCost() == null)
+			return;
+
+		int count = AnnexContainGuest.INSTANCE.execute(guestInAnnexToLowerDiscardCost());
+		this.totalCardsNeedToDiscard -= count;
+		this.totalCardsNeedToDiscard = Math.max(count, 0);
+
+	}
+
 	protected abstract EText getETextShowing();
 
 	protected abstract int totalCardsNeedToDiscard();
+
+	protected abstract EGuest guestInAnnexToLowerDiscardCost();
 
 	protected abstract EGuestType getGuestTypeToReturnToHand();
 

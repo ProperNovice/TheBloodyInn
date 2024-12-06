@@ -1,6 +1,7 @@
 package gameStates;
 
 import cards.Guest;
+import enums.EGuest;
 import enums.EGuestType;
 import enums.EText;
 import states.WagesNeedToBePaid;
@@ -24,6 +25,11 @@ public class DiscardCardsForPayingWages extends DiscardCardsForAction {
 
 	@Override
 	protected Guest guestCantBeDiscarded() {
+		return null;
+	}
+
+	@Override
+	protected EGuest guestInAnnexToLowerDiscardCost() {
 		return null;
 	}
 

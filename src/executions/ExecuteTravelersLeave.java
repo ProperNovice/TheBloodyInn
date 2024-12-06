@@ -2,6 +2,7 @@ package executions;
 
 import cards.Guest;
 import controller.Lists;
+import enums.EGuest;
 import model.Room;
 import model.Rooms;
 import states.Statistics;
@@ -61,6 +62,7 @@ public enum ExecuteTravelersLeave {
 
 		}
 
+		cash += AnnexContainGuest.INSTANCE.execute(EGuest.GARDENER);
 		Statistics.INSTANCE.addCash(cash);
 
 	}
