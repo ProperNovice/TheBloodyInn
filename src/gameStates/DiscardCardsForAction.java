@@ -92,23 +92,22 @@ public abstract class DiscardCardsForAction extends GameState {
 
 		this.totalCardsNeedToDiscard = totalCardsNeedToDiscard();
 
-		if (guestInAnnexToLowerDiscardCost() != null) {
+		if (guestInAnnexToLowerDiscardCost() == null)
+			return;
 
-			int count = AnnexContainGuest.INSTANCE.execute(guestInAnnexToLowerDiscardCost());
+		int count = AnnexContainGuest.INSTANCE.execute(guestInAnnexToLowerDiscardCost());
 
-			this.totalCardsNeedToDiscard -= count;
+		this.totalCardsNeedToDiscard -= count;
 
-			if (this instanceof DiscardCardsForBuildingAnnex) {
+		if (this instanceof DiscardCardsForBuildingAnnex) {
 
-				Guest guest = (Guest) Lists.INSTANCE.annex.getArrayList().getLast();
-				if (guest.getGuestModel().getEGuest().equals(EGuest.MECHANIC))
-					this.totalCardsNeedToDiscard++;
-
-			}
-
-			this.totalCardsNeedToDiscard = Math.max(this.totalCardsNeedToDiscard, 0);
+			Guest guest = (Guest) Lists.INSTANCE.annex.getArrayList().getLast();
+			if (guest.getGuestModel().getEGuest().equals(EGuest.MECHANIC))
+				this.totalCardsNeedToDiscard++;
 
 		}
+
+		this.totalCardsNeedToDiscard = Math.max(this.totalCardsNeedToDiscard, 0);
 
 	}
 

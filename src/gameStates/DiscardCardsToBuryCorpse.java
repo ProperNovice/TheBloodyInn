@@ -30,7 +30,7 @@ public class DiscardCardsToBuryCorpse extends DiscardCardsForAction {
 
 	@Override
 	protected EGuest guestInAnnexToLowerDiscardCost() {
-		return null;
+		return EGuest.ABBOT;
 	}
 
 	@Override

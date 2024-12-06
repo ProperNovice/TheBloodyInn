@@ -35,7 +35,7 @@ public class DiscardCardsForKillingGuest extends DiscardCardsForAction {
 
 	@Override
 	protected EGuest guestInAnnexToLowerDiscardCost() {
-		return EGuest.ABBOT;
+		return null;
 	}
 
 	@Override
