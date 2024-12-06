@@ -33,6 +33,7 @@ public enum EText {
 	SHUFFLE_GUESTS("Shuffle guests", TextTypeEnum.INDICATOR),
 	CHOOSE_KEY_TO_REPLACE("Choose key to replace", TextTypeEnum.INDICATOR),
 	CHOOSE_ROOM_TO_PLACE_SERCVICE("Choose room to place service", TextTypeEnum.INDICATOR),
+	TOTAL_CASH("Total cash: ", TextTypeEnum.INDICATOR),
 
 	;
 

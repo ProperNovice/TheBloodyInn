@@ -15,7 +15,7 @@ public class EndTurn extends GameState {
 				flow().addAllLast(ShuffleGuests.class, StartNewTurn.class);
 
 			else
-				flow().addLast(EndGame.class);
+				flow().addLast(ProceedToEndGame.class);
 
 		} else
 			flow().addLast(StartNewTurn.class);

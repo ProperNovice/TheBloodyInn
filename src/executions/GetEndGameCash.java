@@ -7,11 +7,13 @@ import enums.EGuest;
 import enums.EGuestType;
 import states.Statistics;
 
-public enum AddEndGameCash {
+public enum GetEndGameCash {
 
 	INSTANCE;
 
-	public void execute() {
+	public int execute() {
+
+		int count = 0;
 
 		for (Card card : Lists.INSTANCE.annex) {
 
@@ -28,20 +30,19 @@ public enum AddEndGameCash {
 			switch (eGuest) {
 
 			case BISHOP:
-				Statistics.INSTANCE
-						.addCash(4 * getGuestsAtExitWithEGuestType(EGuestType.RELIGIOUS));
+				count += 4 * getGuestsAtExitWithEGuestType(EGuestType.RELIGIOUS);
 
 			case DUKE:
-				Statistics.INSTANCE.addCash(4 * getGuestsAtExitWithEGuestType(EGuestType.NOBLE));
+				count += 4 * getGuestsAtExitWithEGuestType(EGuestType.NOBLE);
 
 			case GROCER:
-				Statistics.INSTANCE.addCash(4 * getGuestsAtExitWithEGuestType(EGuestType.MERCHANT));
+				count += 4 * getGuestsAtExitWithEGuestType(EGuestType.MERCHANT);
 
 			case LANDSCAPER:
-				Statistics.INSTANCE.addCash(4 * getGuestsAtExitWithEGuestType(EGuestType.ARTISAN));
+				count += 4 * getGuestsAtExitWithEGuestType(EGuestType.ARTISAN);
 
 			case PRINCE:
-				Statistics.INSTANCE.addCash(3 * Statistics.INSTANCE.getChecks());
+				count += 3 * Statistics.INSTANCE.getChecks();
 
 			default:
 				break;
@@ -49,6 +50,8 @@ public enum AddEndGameCash {
 			}
 
 		}
+
+		return count;
 
 	}
 
