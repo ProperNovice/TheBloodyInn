@@ -27,8 +27,9 @@ public enum GetCorpsesToBury {
 			int rank = guest.getGuestModel().getRank();
 			int abbotGuest = AnnexContainGuest.INSTANCE.execute(EGuest.ABBOT);
 
-			if (Lists.INSTANCE.hand.getArrayList().size() + abbotGuest < rank)
-				continue;
+			if (rank > 0)
+				if (Lists.INSTANCE.hand.getArrayList().size() + abbotGuest < rank)
+					continue;
 
 			list.addLast(guest);
 

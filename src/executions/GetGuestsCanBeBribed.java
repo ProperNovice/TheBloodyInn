@@ -28,8 +28,9 @@ public enum GetGuestsCanBeBribed {
 
 			int representativeGuest = AnnexContainGuest.INSTANCE.execute(EGuest.REPRESENTATIVE);
 
-			if (guestRank > Lists.INSTANCE.hand.getArrayList().size() + representativeGuest)
-				continue;
+			if (guestRank > 0)
+				if (guestRank > Lists.INSTANCE.hand.getArrayList().size() + representativeGuest)
+					continue;
 
 			list.addLast(guest);
 

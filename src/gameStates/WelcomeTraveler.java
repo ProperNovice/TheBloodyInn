@@ -62,7 +62,8 @@ public class WelcomeTraveler extends GameState {
 
 		}
 
-		if (roomsAvailable.size() > roomsAvailableOnlyWithNeutralKey.size())
+		if (roomsAvailable.size() > roomsAvailableOnlyWithNeutralKey.size()
+				&& roomsAvailable.size() > 1)
 			return;
 
 		handleRoomPressed(roomsAvailable.getFirst());

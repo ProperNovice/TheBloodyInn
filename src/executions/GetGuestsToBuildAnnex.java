@@ -22,8 +22,9 @@ public enum GetGuestsToBuildAnnex {
 
 			int mechanicGuest = AnnexContainGuest.INSTANCE.execute(EGuest.MECHANIC);
 
-			if (Lists.INSTANCE.hand.getArrayList().size() + mechanicGuest <= guestRank)
-				continue;
+			if (guestRank > 0)
+				if (Lists.INSTANCE.hand.getArrayList().size() + mechanicGuest <= guestRank)
+					continue;
 
 			list.addLast(guest);
 
