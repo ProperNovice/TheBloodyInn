@@ -2,10 +2,12 @@ package gameStates;
 
 import cards.Guest;
 import cards.GuestModel;
+import enums.EGuest;
 import enums.EGuestType;
 import enums.EText;
 import executions.AddGuestFromRoomToHand;
 import executions.AddPeasantFromBistroToHand;
+import executions.AnnexContainGuest;
 import executions.GetGuestsCanBeBribed;
 import gameStatesDefault.GameState;
 import model.Room;
@@ -41,8 +43,6 @@ public class BribeGuest extends GameState {
 			return;
 
 		AddPeasantFromBistroToHand.INSTANCE.execute(1);
-		PeasantsCanBeBribed.INSTANCE.reset(2);
-		PeasantsCanBeBribed.INSTANCE.reducePeasantBribed();
 
 		proceed(guestModel.getEGuestType());
 
@@ -55,7 +55,11 @@ public class BribeGuest extends GameState {
 
 		if (eGuestType.equals(EGuestType.PEASANT)) {
 
-			PeasantsCanBeBribed.INSTANCE.reset(2);
+			if (AnnexContainGuest.INSTANCE.execute(EGuest.BREWER) > 0)
+				PeasantsCanBeBribed.INSTANCE.reset(4);
+			else
+				PeasantsCanBeBribed.INSTANCE.reset(2);
+
 			PeasantsCanBeBribed.INSTANCE.reducePeasantBribed();
 			flow().addFirst(BribeExtraPeasant.class);
 
